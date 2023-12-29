@@ -1,5 +1,5 @@
 ## Project: cg-shopee-app
-## Team Members:
+## Team members:
 ## 1. Hung Lam
 ## 2. Dao Nguyen
 ## 3. Phuong Nguyen
