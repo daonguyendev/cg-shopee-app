@@ -16,13 +16,15 @@
     <div class="header-container">
         <div class="header-container-row1">
             <div class="header-container-row1-left">
-                <div class="header-container-row1-left-item">Kênh người bán</div>
+                <a href="" class="header-container-row1-left-item"
+                >Kênh người bán</a
+                >
                 <div class="header-container-row1-left-item">|</div>
-                <div class="header-container-row1-left-item">
+                <a href="" class="header-container-row1-left-item">
                     Trở thành người bán
-                </div>
+                </a>
                 <div class="header-container-row1-left-item">|</div>
-                <div class="header-container-row1-left-item">Tải ứng dụng</div>
+                <a href="" class="header-container-row1-left-item">Tải ứng dụng</a>
                 <div class="header-container-row1-left-item">|</div>
                 <div class="header-container-row1-left-item">Kết nối</div>
                 <div class="header-container-row1-left-item icon">
@@ -40,19 +42,19 @@
                 <div class="header-container-row1-right-item">
                     <span class="ti-bell"></span> Thông báo
                 </div>
-                <div class="header-container-row1-right-item">
+                <a href="" class="header-container-row1-right-item">
                     <span class="ti-help-alt"></span> Hỗ trợ
-                </div>
+                </a>
                 <div class="header-container-row1-right-item">
                     <span class="ti-world"></span> Tiếng Việt
                 </div>
-                <div class="header-container-row1-right-item">Đăng Ký</div>
+                <a href="" class="header-container-row1-right-item">Đăng Ký</a>
                 <div class="header-container-row1-right-item">|</div>
-                <div class="header-container-row1-right-item">Đăng Nhập</div>
+                <a href="" class="header-container-row1-right-item">Đăng Nhập</a>
             </div>
         </div>
         <div class="header-container-row2">
-            <div class="header-container-row2-left"></div>
+            <a href="" class="header-container-row2-left"></a>
             <div class="header-container-row2-center">
                 <div class="header-container-row2-center-searchContainer">
                     <input
@@ -64,28 +66,54 @@
                     />
                     <div
                             class="header-container-row2-center-searchContainer-searchIcon"
-                    ><span class="ti-search"></span></div>
+                    >
+                        <span class="ti-search"></span>
+                    </div>
                 </div>
             </div>
-            <div class="header-container-row2-right">
+            <a href="" class="header-container-row2-right">
                 <div class="header-container-row2-right-icon"></div>
-            </div>
+            </a>
         </div>
         <div class="header-container-row3">
             <div class="header-container-row3-left"></div>
             <div class="header-container-row3-center">
-                <div class="header-container-row3-center-item">Vợt cầu lông</div>
-                <div class="header-container-row3-center-item">Vợt cầu lông</div>
-                <div class="header-container-row3-center-item">Vợt cầu lông</div>
-                <div class="header-container-row3-center-item">Vợt cầu lông</div>
-                <div class="header-container-row3-center-item">Vợt cầu lông</div>
-                <div class="header-container-row3-center-item">Vợt cầu lông</div>
-                <div class="header-container-row3-center-item">Vợt cầu lông</div>
-                <div class="header-container-row3-center-item">Vợt cầu lông</div>
-                <div class="header-container-row3-center-item">Vợt cầu lông</div>
-                <div class="header-container-row3-center-item">Vợt cầu lông</div>
-                <div class="header-container-row3-center-item">Vợt cầu lông</div>
-                <div class="header-container-row3-center-item">Vợt cầu lông</div>
+                <a href="" class="header-container-row3-center-item"
+                >Vợt cầu lông</a
+                >
+                <a href="" class="header-container-row3-center-item"
+                >Vợt cầu lông</a
+                >
+                <a href="" class="header-container-row3-center-item"
+                >Vợt cầu lông</a
+                >
+                <a href="" class="header-container-row3-center-item"
+                >Vợt cầu lông</a
+                >
+                <a href="" class="header-container-row3-center-item"
+                >Vợt cầu lông</a
+                >
+                <a href="" class="header-container-row3-center-item"
+                >Vợt cầu lông</a
+                >
+                <a href="" class="header-container-row3-center-item"
+                >Vợt cầu lông</a
+                >
+                <a href="" class="header-container-row3-center-item"
+                >Vợt cầu lông</a
+                >
+                <a href="" class="header-container-row3-center-item"
+                >Vợt cầu lông</a
+                >
+                <a href="" class="header-container-row3-center-item"
+                >Vợt cầu lông</a
+                >
+                <a href="" class="header-container-row3-center-item"
+                >Vợt cầu lông</a
+                >
+                <a href="" class="header-container-row3-center-item"
+                >Vợt cầu lông</a
+                >
             </div>
             <div class="header-container-row3-right"></div>
         </div>
