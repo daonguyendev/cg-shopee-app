@@ -20,7 +20,7 @@ public class HomeController extends HttpServlet {
 //        response.setContentType("text/html");
 
         RequestDispatcher dispatcher = getServletContext()
-                .getRequestDispatcher("/WEB-INF/view/home/index.jsp");
+                .getRequestDispatcher("/WEB-INF/view/signIn-signUp-form/signIn-form.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
