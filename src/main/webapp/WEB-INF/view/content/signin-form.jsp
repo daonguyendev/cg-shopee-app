@@ -147,7 +147,7 @@
         <div class="signin-container-content-item-2-form-footer-text">
             Bạn mới biết đến Shopee?
             <a
-                    href="http://127.0.0.1:5500/register.html"
+                    href="/signin-signup?a=signup"
                     class="signin-container-content-item-2-form-footer-text-registerLink"
             >Đăng ký</a
             >

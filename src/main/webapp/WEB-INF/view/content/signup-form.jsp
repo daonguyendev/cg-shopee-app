@@ -167,7 +167,7 @@
         <div class="signup-container-content-item-2-form-footer-text">
             Bạn đã có tài khoản?
             <a
-                    href="#"
+                    href="/signin-signup?a=signin"
                     class="signup-container-content-item-2-form-footer-text-signupLink"
             >Đăng nhập</a
             >

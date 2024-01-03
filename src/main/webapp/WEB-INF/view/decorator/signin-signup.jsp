@@ -14,7 +14,9 @@
         prefix="dec" %>
 <c:set var="commonUrl"
        value="/WEB-INF/view/common"/>
-<%--<c:set var="action" value="${requestScope['action']}"/>--%>
+<c:set var="a" value="${requestScope['a']}"/>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,17 +26,17 @@
     <title>Document</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/signin-signup-background.css">
     <c:choose>
-        <c:when test="${action == 'signin'} ">
+        <c:when test="${a eq 'signin'} ">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/signin-form.css">
-            <script src="/resource/js/signin-form.js"></script>
+            <script src="${pageContext.request.contextPath}/resource/js/signin-form.js"></script>
         </c:when>
-        <c:when test="${action == 'signup'}">
+        <c:when test="${a eq 'signup'}">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/signup-form.css">
-            <script src="/resource/js/signup-form.js"></script>
+            <script src="${pageContext.request.contextPath}/resource/js/signup-form.js"></script>
         </c:when>
         <c:otherwise>
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/signin-form.css">
-            <script src="/resource/js/signin-form.js"></script>
+            <script src="${pageContext.request.contextPath}/resource/js/signin-form.js"></script>
         </c:otherwise>
     </c:choose>
 </head>
@@ -42,13 +44,13 @@
 <div class="header">
     <div class="header-container">
         <div class="header-container-left">
-            <a href="" class="header-container-left-item1"></a>
+            <a href="/home" class="header-container-left-item1"></a>
             <div class="header-container-left-item2">
                 <c:choose>
-                    <c:when test="${action == 'signin'} ">
+                    <c:when test="${a eq 'signin'} ">
                         <c:out value="${'Đăng nhập'}" />
                     </c:when>
-                    <c:when test="${action == 'signup'}">
+                    <c:when test="${a eq 'signup'}">
                         <c:out value="${'Đăng ký'}" />
                     </c:when>
                     <c:otherwise>

@@ -1,3 +1,5 @@
+<%@ taglib prefix="c"
+           uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -7,7 +9,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8"
          language="java" %>
-
+<c:set var="user" value='${sessionScope["user"]}' />
 
 <div class="header-under">
 
@@ -48,13 +50,25 @@
                 <div class="header-container-row1-right-item">
                     <span class="ti-world"></span> Tiếng Việt
                 </div>
-                <a href="/signin-signup?action=signup" class="header-container-row1-right-item">Đăng Ký</a>
-                <div class="header-container-row1-right-item">|</div>
-                <a href="/signin-signup?action=signin" class="header-container-row1-right-item">Đăng Nhập</a>
+
+                <c:choose>
+                    <c:when test = "${empty user}">
+                        <a href="/signin-signup?a=signup" class="header-container-row1-right-item">Đăng Ký</a>
+                        <div class="header-container-row1-right-item">|</div>
+                        <a href="/signin-signup?a=signin" class="header-container-row1-right-item">Đăng Nhập</a>
+                       </c:when>
+
+                    <c:otherwise>
+                        <a href="/user?a=ui" class="header-container-row1-right-item">${user.getName}</a>
+
+                    </c:otherwise>
+                </c:choose>
+
+
             </div>
         </div>
         <div class="header-container-row2">
-            <a href="" class="header-container-row2-left"></a>
+            <a href="/home" class="header-container-row2-left"></a>
             <div class="header-container-row2-center">
                 <div class="header-container-row2-center-searchContainer">
                     <input

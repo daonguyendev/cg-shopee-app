@@ -14,6 +14,8 @@
         prefix="dec" %>
 <c:set var="commonUrl"
        value="/WEB-INF/view/common"/>
+<c:set var="a"
+       value="${requestScope['a']}"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,9 +27,24 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/footer.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/home.css">
-<%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/user-information.css">--%>
-<%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/cart-form.css">--%>
+    <c:choose>
+        <c:when test = "${a eq 'home'}">
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/home.css">
+        </c:when>
+
+        <c:when test = "${a eq 'ui'}">
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/user-information.css">
+        </c:when>
+        <c:when test = "${a eq 'cart'}">
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/cart-form.css">
+        </c:when>
+        <c:when test = "${a eq 'pm'}">
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/product-managerment.css">
+        </c:when>
+        <c:otherwise>
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/home.css">
+        </c:otherwise>
+    </c:choose>
 
 </head>
 <body>
@@ -43,8 +60,25 @@
 <jsp:include
         page="${commonUrl}/footer.jsp"></jsp:include>
 
-<script src="${pageContext.request.contextPath}/resource/js/home.js"></script>
-<%--<script src="${pageContext.request.contextPath}/resource/js/user-information.js"></script>--%>
-<%--<script src="${pageContext.request.contextPath}/resource/js/cart-form.js"></script>--%>
+
+
+<c:choose>
+    <c:when test = "${a eq 'home'}">
+        <script src="${pageContext.request.contextPath}/resource/js/home.js"></script>
+    </c:when>
+
+    <c:when test = "${a eq 'ui'}">
+        <script src="${pageContext.request.contextPath}/resource/js/user-information.js"></script>
+    </c:when>
+    <c:when test = "${a eq 'cart'}">
+        <script src="${pageContext.request.contextPath}/resource/js/cart-form.js"></script>
+    </c:when>
+    <c:when test = "${a eq 'pm'}">
+        <script src="${pageContext.request.contextPath}/resource/js/product-management.js"></script>
+    </c:when>
+    <c:otherwise>
+        <script src="${pageContext.request.contextPath}/resource/js/home.js"></script>
+    </c:otherwise>
+</c:choose>
 </body>
 </html>
