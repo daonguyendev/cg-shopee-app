@@ -1,10 +1,6 @@
 package com.codegym.cgshopeeapp.model.dao;
-
 import com.codegym.cgshopeeapp.Connection.JdbcConnection;
 import com.codegym.cgshopeeapp.model.entity.Product;
-import com.codegym.cgshopeeapp.model.entity.User;
-
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -49,8 +45,7 @@ public class ProductDao {
     public void insert(Product product) {
         try {
             Connection connection = JdbcConnection.getConnection();
-            String query = "INSERT INTO product (name,origin_unit_price,promote,current_price,quantity) " +
-                    "VALUES( ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO product (name,origin_unit_price,promote,current_price,quantity) VALUES( ?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, product.getId());
             preparedStatement.setString(2, product.getName());
@@ -58,7 +53,11 @@ public class ProductDao {
             preparedStatement.setInt(4, product.getPromote());
             preparedStatement.setInt(5, product.getCurrentPrice());
             preparedStatement.setInt(6, product.getQuantity());
-
+            if(preparedStatement.executeUpdate() > 0) {
+                System.out.println("Added user successfully.");
+            } else {
+                System.out.println("Failed to insert user.");
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,7 +70,11 @@ public class ProductDao {
             String query = "DELETE FROM product WHERE id like ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, id);
-
+            if(preparedStatement.executeUpdate() > 0) {
+                System.out.println("delete product successfully.");
+            } else {
+                System.out.println("Failed to delete product.");
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -90,7 +93,11 @@ public class ProductDao {
             preparedStatement.setInt(4, product.getPromote());
             preparedStatement.setInt(5, product.getCurrentPrice());
             preparedStatement.setInt(6, product.getQuantity());
-
+            if(preparedStatement.executeUpdate() > 0) {
+                System.out.println("Update product succuessfully.");
+            } else {
+                System.out.println("Failed to update product.");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -108,7 +115,6 @@ public class ProductDao {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (preparedStatement.executeUpdate() > 0) {
-//                da ton tai
                 return true;
             } else {
                 return false;
@@ -120,7 +126,6 @@ public class ProductDao {
     }
 
 
-    //    lay san pham theo cua hang
     public void get(String email) {
 
         products = new LinkedList<>();

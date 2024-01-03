@@ -1,6 +1,8 @@
 package com.codegym.cgshopeeapp.model.entity;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class User {
     private String emailUser;
@@ -12,7 +14,7 @@ public class User {
     private String addressUser;
 
     private String phoneNumber;
-    private Date dateOfBirth;
+    private String dateOfBirth;
     private String gender;
 
     private String role;
@@ -27,19 +29,8 @@ public class User {
         this.status = status;
     }
 
-    public User(String emailUser, String nameUser, String passwordUser, String verifyCode, boolean status, String addressUser, String phoneNumber, Date dateOfBirth, String gender) {
-        this.emailUser = emailUser;
-        this.nameUser = nameUser;
-        this.passwordUser = passwordUser;
-        this.verifyCode = verifyCode;
-        this.status = status;
-        this.addressUser = addressUser;
-        this.phoneNumber = phoneNumber;
-        this.dateOfBirth = dateOfBirth;
-        this.gender = gender;
-    }
 
-    public User(String emailUser, String nameUser, String passwordUser, String verifyCode, boolean status, String addressUser, String phoneNumber, Date dateOfBirth, String gender, String role) {
+    public User(String emailUser, String passwordUser, String nameUser , String gender , String dateOfBirth , String phoneNumber, String role, String verifyCode , String addressUser, boolean status) {
         this.emailUser = emailUser;
         this.nameUser = nameUser;
         this.passwordUser = passwordUser;
@@ -108,11 +99,11 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

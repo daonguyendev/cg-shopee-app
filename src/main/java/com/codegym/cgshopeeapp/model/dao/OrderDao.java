@@ -57,7 +57,11 @@ public class OrderDao {
             preparedStatement.setInt(3, order.getQuantity());
             preparedStatement.setInt(4, order.getTotalPrice());
             preparedStatement.setString(5, String.valueOf(order.getDateTime()));
-
+            if(preparedStatement.executeUpdate() > 0) {
+                System.out.println("insert order successfully.");
+            } else {
+                System.out.println("Failed to insert order.");
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,7 +74,11 @@ public class OrderDao {
             String query = "DELETE FROM product WHERE id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, order.getId());
-
+            if(preparedStatement.executeUpdate() > 0) {
+                System.out.println("delete order successfully.");
+            } else {
+                System.out.println("Failed to delete order.");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
