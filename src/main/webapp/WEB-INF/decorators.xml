@@ -2,11 +2,11 @@
     <exclude>
         
     </exclude>
-<!--    <decorator name="default" page="default.jsp">-->
-<!--        <pattern>/*</pattern>-->
-<!--    </decorator>-->
-    <decorator name="signIn-signUp" page="signIn-signUp.jsp">
+    <decorator name="default" page="default.jsp">
         <pattern>/*</pattern>
     </decorator>
+<!--    <decorator name="signin-signup" page="signin-signup.jsp">-->
+<!--        <pattern>/signin-signup</pattern>-->
+<!--    </decorator>-->
 
 </decorators>

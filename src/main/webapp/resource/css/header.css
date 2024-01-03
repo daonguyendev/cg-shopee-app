@@ -18,6 +18,12 @@ a:hover {
   opacity: 0.8;
 }
 
+.header-under{
+  width: 100%;
+  height: 120px;
+  max-height: 120px;
+}
+
 .header {
   width: 100%;
   height: 120px;
@@ -26,6 +32,8 @@ a:hover {
   display: flex;
   justify-content: center;
   position: fixed;
+  top: 0;
+  z-index: 1;
 }
 
 .header-container {
@@ -163,6 +171,7 @@ a:hover {
   height: 1.625rem;
   background-image: url(../asset/img/shopee_cart-removebg-preview.png);
   background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .header-container-row3 {

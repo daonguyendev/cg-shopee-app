@@ -7,11 +7,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8"
          language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+
+
+<div class="header-under">
+
+</div>
 <div class="header">
     <div class="header-container">
         <div class="header-container-row1">
@@ -48,9 +48,9 @@
                 <div class="header-container-row1-right-item">
                     <span class="ti-world"></span> Tiếng Việt
                 </div>
-                <a href="" class="header-container-row1-right-item">Đăng Ký</a>
+                <a href="/signin-signup?action=signup" class="header-container-row1-right-item">Đăng Ký</a>
                 <div class="header-container-row1-right-item">|</div>
-                <a href="" class="header-container-row1-right-item">Đăng Nhập</a>
+                <a href="/signin-signup?action=signin" class="header-container-row1-right-item">Đăng Nhập</a>
             </div>
         </div>
         <div class="header-container-row2">
@@ -119,5 +119,5 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+
+

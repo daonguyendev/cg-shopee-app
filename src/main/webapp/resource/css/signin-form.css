@@ -11,12 +11,12 @@
 }
 
 
-.login-container-content-item-2 {
+.signin-container-content-item-2 {
   display: flex;
   flex-direction: row-reverse;
 }
 
-.login-container-content-item-2-form {
+.signin-container-content-item-2-form {
   width: 400px;
   height: 482px;
   background-color: #fff;
@@ -25,27 +25,27 @@
   flex-direction: column;
 }
 
-.login-container-content-item-2-form-header {
+.signin-container-content-item-2-form-header {
   height: 103px;
   display: flex;
   padding: 22px 30px;
   justify-content: space-between;
 }
 
-.login-container-content-item-2-form-header-item1 {
+.signin-container-content-item-2-form-header-item1 {
   flex: 1;
   font-size: 1.25rem;
   text-align: center;
   line-height: 59px;
 }
 
-.login-container-content-item-2-form-header-item2 {
+.signin-container-content-item-2-form-header-item2 {
   flex: 2;
   display: flex;
   align-items: center;
 }
 
-.login-container-content-item-2-form-header-item2-QRtext {
+.signin-container-content-item-2-form-header-item2-QRtext {
   flex: 3;
   color: #ffc209;
   font-weight: bold;
@@ -55,9 +55,9 @@
   line-height: 18px;
 }
 
-.login-container-content-item-2-form-header-item2-QRicon {
+.signin-container-content-item-2-form-header-item2-QRicon {
   flex: 1;
-  background-image: url(../img/QR-icon.png);
+  background-image: url('/resource/asset/img/QR-icon.png');
   background-size: contain;
   background-position-x: right;
   background-position-y: center;
@@ -66,17 +66,17 @@
   margin-left: 8px;
 }
 
-.login-container-content-item-2-form-header-item2-QRicon:hover{
+.signin-container-content-item-2-form-header-item2-QRicon:hover{
   cursor: pointer;
 }
 
-.login-container-content-item-2-form-body {
+.signin-container-content-item-2-form-body {
   height: 300px;
   display: flex;
   flex-direction: column;
 }
 
-.login-container-content-item-2-form-body-item-1 {
+.signin-container-content-item-2-form-body-item-1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -85,13 +85,13 @@
   position: relative;
 }
 
-.login-container-content-item-2-form-body-item-1-inputEmail {
+.signin-container-content-item-2-form-body-item-1-inputEmail {
   height: 40px;
   border: 1px solid #ccc;
   padding: 12px;
 }
 
-.login-container-content-item-2-form-body-item-1-inputEmail::placeholder {
+.signin-container-content-item-2-form-body-item-1-inputEmail::placeholder {
   font-size: 0.9rem;
   opacity: 0.6;
 }
@@ -112,37 +112,37 @@
   display: none;
 
 }
-.login-container-content-item-2-form-body-item-1-passwordBox {
+.signin-container-content-item-2-form-body-item-1-passwordBox {
   display: flex;
   border: 1px solid #ccc;
 }
 
-.login-container-content-item-2-form-body-item-1-inputPassword {
+.signin-container-content-item-2-form-body-item-1-inputPassword {
   height: 40px;
   border: none;
   padding: 12px;
   flex: 1;
 }
 
-.login-container-content-item-2-form-body-item-1-inputPassword::placeholder {
+.signin-container-content-item-2-form-body-item-1-inputPassword::placeholder {
   font-size: 0.9rem;
   opacity: 0.6;
 }
 
-.login-container-content-item-2-form-body-item-1-inputPassword-eyeIcon {
+.signin-container-content-item-2-form-body-item-1-inputPassword-eyeIcon {
   width: 40px;
   height: 40px;
-  background-image: url(../img/close-eye.png);
+  background-image: url('/resource/asset/img/close-eye.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
 }
 
-.login-container-content-item-2-form-body-item-1-inputPassword-openEyeIcon {
+.signin-container-content-item-2-form-body-item-1-inputPassword-openEyeIcon {
   width: 40px;
   height: 40px;
-  background-image: url(../img/open-eye.png);
+  background-image: url('/resource/asset/img/open-eye.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -150,72 +150,72 @@
   display: none;
 }
 
-.login-container-content-item-2-form-body-item-1-inputPassword-eyeIcon:hover {
+.signin-container-content-item-2-form-body-item-1-inputPassword-eyeIcon:hover {
   cursor: pointer;
 }
 
-.login-container-content-item-2-form-body-item-1-submitLogin {
+.signin-container-content-item-2-form-body-item-1-submitLogin {
   height: 40px;
   background-color: var(--shope-color);
   border: none;
   color: #fff;
 }
 
-.login-container-content-item-2-form-body-item-1-submitLogin:hover{
+.signin-container-content-item-2-form-body-item-1-submitLogin:hover{
   opacity: 0.9;
 }
 
-.login-container-content-item-2-form-body-item-1-submitLogin:disabled{
+.signin-container-content-item-2-form-body-item-1-submitLogin:disabled{
   opacity: 0.6;
   cursor: not-allowed;
 }
 
 
-.login-container-content-item-2-form-body-item-2 {
+.signin-container-content-item-2-form-body-item-2 {
   flex: 1;
   padding: 0 30px;
   display: flex;
   flex-direction: column;
 }
 
-.login-container-content-item-2-form-body-item-2-top {
+.signin-container-content-item-2-form-body-item-2-top {
   flex: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.login-container-content-item-2-form-body-item-2-middle {
+.signin-container-content-item-2-form-body-item-2-middle {
   flex: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.login-container-content-item-2-form-body-item-2-bottom {
+.signin-container-content-item-2-form-body-item-2-bottom {
   flex: 1;
   display: flex;
 }
 
-.login-container-content-item-2-form-body-item-2-top-item {
+.signin-container-content-item-2-form-body-item-2-top-item {
   font-size: 0.75rem;
   text-decoration: none;
   color: #0f75ba;
 }
 
-.login-container-content-item-2-form-body-item-2-middle-side {
+.signin-container-content-item-2-form-body-item-2-middle-side {
   flex: 1;
   height: 1px;
   background-color: #dbdbdb;
 }
 
-.login-container-content-item-2-form-body-item-2-middle-center {
+.signin-container-content-item-2-form-body-item-2-middle-center {
   font-size: 0.75rem;
   padding: 0 16px;
   color: #dbdbdb;
 }
 
-.login-container-content-item-2-form-body-item-2-bottom-loginByFB {
+.signin-container-content-item-2-form-body-item-2-bottom-signinByFB {
   flex: 1;
   display: flex;
   margin-right: 5px;
@@ -228,7 +228,7 @@
   color: #000;
 }
 
-.login-container-content-item-2-form-body-item-2-bottom-loginByGG {
+.signin-container-content-item-2-form-body-item-2-bottom-signinByGG {
   flex: 1;
   display: flex;
   margin-left: 5px;
@@ -241,43 +241,43 @@
   color: #000;
 }
 
-.login-container-content-item-2-form-body-item-2-bottom-loginByFB:hover,
-.login-container-content-item-2-form-body-item-2-bottom-loginByGG:hover{
+.signin-container-content-item-2-form-body-item-2-bottom-signinByFB:hover,
+.signin-container-content-item-2-form-body-item-2-bottom-signinByGG:hover{
   background-color: rgba(0,0,0,.02);
 }
 
 
-.login-container-content-item-2-form-body-item-2-bottom-loginByFB-icon {
+.signin-container-content-item-2-form-body-item-2-bottom-signinByFB-icon {
   height: 24px;
   width: 24px;
-  background-image: url(../img/facebook-icon.png);
+  background-image: url('/resource/asset/img/facebook-icon.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.login-container-content-item-2-form-body-item-2-bottom-loginByGG-icon {
+.signin-container-content-item-2-form-body-item-2-bottom-signinByGG-icon {
   height: 24px;
   width: 24px;
-  background-image: url(../img/google-icon.png);
+  background-image: url('/resource/asset/img/google-icon.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.login-container-content-item-2-form-footer {
+.signin-container-content-item-2-form-footer {
   display: flex;
   flex: 1;
   justify-content: center;
   align-items: center;
 }
 
-.login-container-content-item-2-form-footer-text {
+.signin-container-content-item-2-form-footer-text {
   font-size: 0.875rem;
   color: #ccc;
 }
 
-.login-container-content-item-2-form-footer-text-registerLink {
+.signin-container-content-item-2-form-footer-text-registerLink {
   font-size: 0.875rem;
   text-decoration: none;
   color: var(--shope-color);

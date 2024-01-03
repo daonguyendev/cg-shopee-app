@@ -67,7 +67,7 @@ a {
   background-color: var(--shope-color);
 }
 
-.main-container {
+.body-container {
   display: flex;
   justify-content: end;
   align-items: center;

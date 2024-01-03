@@ -1,10 +1,10 @@
-let submit = document.querySelector(".login-container-content-item-2-form-body-item-1-submitLogin");
+let submit = document.querySelector(".signin-container-content-item-2-form-body-item-1-submitLogin");
 submit.disabled = true;
 
 
 function hideShowPassword() {
-    let openEye = document.querySelector(".login-container-content-item-2-form-body-item-1-inputPassword-openEyeIcon");
-    let password = document.querySelector(".login-container-content-item-2-form-body-item-1-inputPassword");
+    let openEye = document.querySelector(".signin-container-content-item-2-form-body-item-1-inputPassword-openEyeIcon");
+    let password = document.querySelector(".signin-container-content-item-2-form-body-item-1-inputPassword");
     let passwordType = password.type;
     console.log(passwordType.typeOf)
     if (passwordType == "password") {
@@ -17,9 +17,9 @@ function hideShowPassword() {
 }
 
 function checkInput() {
-    let email = document.querySelector(".login-container-content-item-2-form-body-item-1-inputEmail");
-    let password = document.querySelector(".login-container-content-item-2-form-body-item-1-inputPassword");
-    let submit = document.querySelector(".login-container-content-item-2-form-body-item-1-submitLogin");
+    let email = document.querySelector(".signin-container-content-item-2-form-body-item-1-inputEmail");
+    let password = document.querySelector(".signin-container-content-item-2-form-body-item-1-inputPassword");
+    let submit = document.querySelector(".signin-container-content-item-2-form-body-item-1-submitLogin");
 
     if (email.value != "" && password.value != "") {
         submit.disabled = false;
@@ -29,8 +29,8 @@ function checkInput() {
 }
 
 function messageCheckInput() {
-    let email = document.querySelector(".login-container-content-item-2-form-body-item-1-inputEmail");
-    let password = document.querySelector(".login-container-content-item-2-form-body-item-1-inputPassword");
+    let email = document.querySelector(".signin-container-content-item-2-form-body-item-1-inputEmail");
+    let password = document.querySelector(".signin-container-content-item-2-form-body-item-1-inputPassword");
     let messageEmail = document.querySelector(".invalidEmail-announce");
     let messagePassword = document.querySelector(".invalidPassword-announce");
 
