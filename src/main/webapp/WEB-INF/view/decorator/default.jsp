@@ -24,6 +24,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0"/>
     <title>Document</title>
+
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/footer.css">
@@ -45,6 +46,7 @@
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/home.css">
         </c:otherwise>
     </c:choose>
+
 
 </head>
 <body>

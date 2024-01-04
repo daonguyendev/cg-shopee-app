@@ -2,6 +2,7 @@
     <exclude>
         
     </exclude>
+
     <decorator name="default" page="default.jsp">
         <pattern>/</pattern>
         <pattern>/home</pattern>
@@ -11,6 +12,7 @@
     </decorator>
     <decorator name="signin-signup" page="signin-signup.jsp">
         <pattern>/signin-signup</pattern>
+
     </decorator>
 
 </decorators>

@@ -9,11 +9,13 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8"
          language="java" %>
+
 <c:set var="user" value='${sessionScope["user"]}' />
 
 <div class="header-under">
 
 </div>
+
 <div class="header">
     <div class="header-container">
         <div class="header-container-row1">
@@ -51,6 +53,7 @@
                     <span class="ti-world"></span> Tiếng Việt
                 </div>
 
+
                 <c:choose>
                     <c:when test = "${empty user}">
                         <a href="/signin-signup?a=signup" class="header-container-row1-right-item">Đăng Ký</a>
@@ -69,6 +72,7 @@
         </div>
         <div class="header-container-row2">
             <a href="/home" class="header-container-row2-left"></a>
+
             <div class="header-container-row2-center">
                 <div class="header-container-row2-center-searchContainer">
                     <input
@@ -133,5 +137,4 @@
         </div>
     </div>
 </div>
-
 
