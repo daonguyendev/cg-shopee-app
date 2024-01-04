@@ -37,8 +37,8 @@
                     class="signup-container-content-item-2-form-body-item-1-inputEmail"
                     placeholder="Email"
                     required
-                    onkeyup="checkInput(), messageCheckInput()"
-                    onblur="messageCheckInput()"
+                    onkeyup="checkInput(), checkInputMessage()"
+                    onblur="checkInputMessage()"
             />
             <div class="invalidEmail-announce">Vui lòng điền vào mục này</div>
             <div
@@ -52,8 +52,8 @@
                         name="signup-password"
                         id=""
                         required
-                        onkeyup="checkInput(),messageCheckInput()"
-                        onblur="messageCheckInput(),checkValidCorrectPassword(), checkRegexPassword()"
+                        onkeyup="checkInput(),checkInputMessage()"
+                        onblur="checkInputMessage(),checkValidCorrectPassword(), checkRegexPassword()"
                 />
                 <div
                         class="signup-container-content-item-2-form-body-item-1-inputPassword-eyeIcon"

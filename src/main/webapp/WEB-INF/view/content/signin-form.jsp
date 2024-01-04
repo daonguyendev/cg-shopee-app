@@ -13,7 +13,7 @@
 </head>
 <body>
 <form
-        action="#"
+        action="/user?a=singin"
         class="signin-container-content-item-2-form"
         method="post"
 >
@@ -42,7 +42,7 @@
                     placeholder="Email"
                     required
                     onkeyup="checkInput()"
-                    onblur="messageCheckInput()"
+                    onblur="checkInputMessage()"
             />
             <div class="invalidEmail-announce">
                 Vui lòng điền vào mục này
@@ -59,7 +59,7 @@
                         id=""
                         required
                         onkeyup="checkInput()"
-                        onblur="messageCheckInput()"
+                        onblur="checkInputMessage()"
                 />
                 <div
                         class="signin-container-content-item-2-form-body-item-1-inputPassword-eyeIcon"
