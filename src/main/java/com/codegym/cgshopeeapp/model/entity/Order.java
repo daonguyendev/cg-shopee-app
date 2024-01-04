@@ -11,12 +11,8 @@ public class Order {
     private int totalPrice;
 
     private LocalDateTime dateTime;
-
     public Order() {
     }
-
-
-
     public Order(int id, String userEmail, int productID, String productName, int quantity, int totalPrice, LocalDateTime dateTime) {
         this.id = id;
         this.userEmail = userEmail;

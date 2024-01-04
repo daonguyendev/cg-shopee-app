@@ -9,6 +9,8 @@ public class Product {
     private int currentPrice;
     private int quantity;
 
+    private String Url;
+
     public Product() {
     }
 
@@ -21,7 +23,7 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Product(int id, String idUser, String name, int originUnitPrice, int promote, int currentPrice, int quantity) {
+    public Product(int id, String idUser, String name, int originUnitPrice, int promote, int currentPrice, int quantity, String url) {
         this.id = id;
         this.idUser = idUser;
         this.name = name;
@@ -29,6 +31,7 @@ public class Product {
         this.promote = promote;
         this.currentPrice = currentPrice;
         this.quantity = quantity;
+        this.Url = url;
     }
 
     public int getId() {
@@ -87,6 +90,13 @@ public class Product {
         this.idUser = idUser;
     }
 
+    public String getUrl() {
+        return Url;
+    }
+
+    public void setUrl(String url) {
+        Url = url;
+    }
 
     @Override
     public String toString() {

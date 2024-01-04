@@ -1,17 +1,13 @@
 package com.codegym.cgshopeeapp.model.entity;
 
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 public class User {
-    private String emailUser;
-    private String nameUser;
-    private String passwordUser;
+    private String email;
+    private String name;
+    private String password;
 
     private String verifyCode;
     private boolean status;
-    private String addressUser;
+    private String address;
 
     private String phoneNumber;
     private String dateOfBirth;
@@ -22,49 +18,49 @@ public class User {
     public User() {
     }
 
-    public User(String emailUser, String passwordUser, String verifyCode, boolean status) {
-        this.emailUser = emailUser;
-        this.passwordUser = passwordUser;
+    public User(String email, String password, String verifyCode, boolean status) {
+        this.email = email;
+        this.password = password;
         this.verifyCode = verifyCode;
         this.status = status;
     }
 
 
-    public User(String emailUser, String passwordUser, String nameUser , String gender , String dateOfBirth , String phoneNumber, String role, String verifyCode , String addressUser, boolean status) {
-        this.emailUser = emailUser;
-        this.nameUser = nameUser;
-        this.passwordUser = passwordUser;
+    public User(String email, String password, String nameUser , String gender , String dateOfBirth , String phoneNumber, String role, String verifyCode , String address, boolean status) {
+        this.email = email;
+        this.name = nameUser;
+        this.password = password;
         this.verifyCode = verifyCode;
         this.status = status;
-        this.addressUser = addressUser;
+        this.address = address;
         this.phoneNumber = phoneNumber;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.role = role;
     }
 
-    public String getEmailUser() {
-        return emailUser;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailUser(String emailUser) {
-        this.emailUser = emailUser;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getNameUser() {
-        return nameUser;
+    public String getName() {
+        return name;
     }
 
-    public void setNameUser(String nameUser) {
-        this.nameUser = nameUser;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPasswordUser() {
-        return passwordUser;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswordUser(String passwordUser) {
-        this.passwordUser = passwordUser;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getVerifyCode() {
@@ -83,12 +79,12 @@ public class User {
         this.status = status;
     }
 
-    public String getAddressUser() {
-        return addressUser;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddressUser(String addressUser) {
-        this.addressUser = addressUser;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getPhoneNumber() {
@@ -126,12 +122,12 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "emailUser='" + emailUser + '\'' +
-                ", nameUser='" + nameUser + '\'' +
-                ", passwordUser='" + passwordUser + '\'' +
+                "email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
                 ", verifyCode='" + verifyCode + '\'' +
                 ", status=" + status +
-                ", addressUser='" + addressUser + '\'' +
+                ", address='" + address + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", gender='" + gender + '\'' +

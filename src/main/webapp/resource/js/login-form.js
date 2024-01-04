@@ -28,7 +28,7 @@ function checkInput() {
     }
 }
 
-function messageCheckInput() {
+function checkInputMessage() {
     let email = document.querySelector(".login-container-content-item-2-form-body-item-1-inputEmail");
     let password = document.querySelector(".login-container-content-item-2-form-body-item-1-inputPassword");
     let messageEmail = document.querySelector(".invalidEmail-announce");

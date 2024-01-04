@@ -15,7 +15,7 @@ import java.util.List;
 public class OrderDao {
     private List<Order> orders = null;
 
-    public List<Order> getAllInfo() {
+    public List<Order> getOrderInfor() {
 
         orders = new LinkedList<>();
         try {
