@@ -1,5 +1,6 @@
-let submit = document.querySelector(".signup-container-content-item-2-form-body-item-1-submitsignup");
-submit.disabled = true;
+let submitButton = document.getElementById("signup-submit-button");
+console.log(submitButton);
+submitButton.disabled = true;
 let passwordRegex = false;
 let passwordCorrect = false;
 
@@ -14,38 +15,6 @@ function hideShowPassword() {
     } else {
         password.type = "password";
         openEye.style.display = "none";
-    }
-}
-
-function checkInput() {
-    let email = document.querySelector(".signup-container-content-item-2-form-body-item-1-inputEmail");
-    let password = document.querySelector(".signup-container-content-item-2-form-body-item-1-inputPassword");
-    let submit = document.querySelector(".signup-container-content-item-2-form-body-item-1-submitsignup");
-    passwordRegex = checkRegexPassword();
-    passwordCorrect = checkValidCorrectPassword();
-    if (email.value != "" && password.value != "" && passwordRegex && passwordCorrect) {
-        console.log(checkRegexPassword);
-        submit.disabled = false;
-    } else {
-        submit.disabled = true;
-    }
-}
-
-function messageCheckInput() {
-    let email = document.querySelector(".signup-container-content-item-2-form-body-item-1-inputEmail");
-    let password = document.querySelector(".signup-container-content-item-2-form-body-item-1-inputPassword");
-    let messageEmail = document.querySelector(".invalidEmail-announce");
-    let messagePassword = document.querySelector(".invalidPassword-announce");
-
-    if (email.value != "") {
-        messageEmail.style.display = "none";
-    } else {
-        messageEmail.style.display = "block";
-    }
-    if (password.value != "") {
-        messagePassword.style.display = "none"
-    } else {
-        messagePassword.style.display = "block"
     }
 }
 
@@ -80,4 +49,36 @@ function checkRegexPassword() {
         return true;
     }
 
+}
+
+function checkInput() {
+    let email = document.querySelector(".signup-container-content-item-2-form-body-item-1-inputEmail");
+    let password = document.querySelector(".signup-container-content-item-2-form-body-item-1-inputPassword");
+    let submitButton = document.querySelector(".signup-container-content-item-2-form-body-item-1-submitsignup");
+    passwordRegex = checkRegexPassword();
+    passwordCorrect = checkValidCorrectPassword();
+    if (email.value != "" && password.value != "" && passwordRegex && passwordCorrect) {
+        console.log(checkRegexPassword);
+        submitButton.disabled = false;
+    } else {
+        submitButton.disabled = true;
+    }
+}
+
+function checkInputMessage() {
+    let email = document.querySelector(".signup-container-content-item-2-form-body-item-1-inputEmail");
+    let password = document.querySelector(".signup-container-content-item-2-form-body-item-1-inputPassword");
+    let messageEmail = document.querySelector(".invalidEmail-announce");
+    let messagePassword = document.querySelector(".invalidPassword-announce");
+
+    if (email.value != "") {
+        messageEmail.style.display = "none";
+    } else {
+        messageEmail.style.display = "block";
+    }
+    if (password.value != "") {
+        messagePassword.style.display = "none"
+    } else {
+        messagePassword.style.display = "block"
+    }
 }

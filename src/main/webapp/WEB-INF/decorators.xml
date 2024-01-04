@@ -12,6 +12,7 @@
     </decorator>
     <decorator name="signin-signup" page="signin-signup.jsp">
         <pattern>/signin-signup</pattern>
+        <pattern>/verify</pattern>
 
     </decorator>
 
