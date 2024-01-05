@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -13,10 +14,16 @@
 </head>
 <body>
 <form
-        action="/user?a=singin"
+        action="/signin-signup"
         class="signin-container-content-item-2-form"
         method="post"
 >
+    <input
+            type="text"
+            name="a"
+            value="signin"
+            hidden="hidden"
+    />
     <div class="signin-container-content-item-2-form-header">
         <div class="signin-container-content-item-2-form-header-item1">
             Đăng nhập

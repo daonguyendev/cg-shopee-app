@@ -1,30 +1,30 @@
 plugins {
-  id 'java'
-  id 'war'
+    id 'java'
+    id 'war'
 }
 
 group 'com.codegym'
 version '1.0-SNAPSHOT'
 
 repositories {
-  mavenCentral()
+    mavenCentral()
 }
 
 ext {
-  junitVersion = '5.9.2'
+    junitVersion = '5.9.2'
 }
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
 tasks.withType(JavaCompile) {
-  options.encoding = 'UTF-8'
+    options.encoding = 'UTF-8'
 }
 
 dependencies {
+
   implementation 'org.jetbrains:annotations:24.0.0'
   compileOnly('javax.servlet:javax.servlet-api:4.0.1')
-
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
   implementation 'opensymphony:sitemesh:2.5.0'
@@ -34,11 +34,17 @@ dependencies {
   implementation 'org.apache.logging.log4j:log4j-api:2.17.1'
   implementation 'com.sun.mail:javax.mail:1.6.2'
   implementation 'javax.mail:javax.mail-api:1.6.2'
-
-
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    implementation 'opensymphony:sitemesh:2.5.0'
+    implementation 'javax.servlet:jstl:1.2'
+    implementation 'com.mysql:mysql-connector-j:8.0.33'
+    implementation 'org.apache.logging.log4j:log4j-api:2.22.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.22.0'
 
 
 }
 
 test {
-useJUnitPlatform()}
+    useJUnitPlatform()
+}
