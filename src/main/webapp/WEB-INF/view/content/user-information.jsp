@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -191,6 +192,7 @@
                                     type="text"
                                     name="name"
                                     class="person-body-container-content-bottom-left-row-value-input"
+                                    value="${user.getName()}"
                             />
                         </div>
                     </div>
@@ -215,7 +217,7 @@
                         <div
                                 class="person-body-container-content-bottom-left-row-value"
                         >
-                            *********00
+                            *********${sdt}
                             <p
                                     class="person-body-container-content-bottom-left-row-value changePassword"
                             >
@@ -223,6 +225,7 @@
                             </p>
                         </div>
                     </div>
+                    <input>
                     <div class="person-body-container-content-bottom-left-row">
                         <div
                                 class="person-body-container-content-bottom-left-row-label"
@@ -235,19 +238,30 @@
                             <div
                                     class="person-body-container-content-bottom-left-row-value-radioGroup"
                             >
-                                <input type="radio" name="gender" id="nam" value="nam" />
+                                <input type="radio" name="gender" id="nam" value="nam"
+                                       checked="<c:if test="${user.getPhoneNumber() ne 'nam'}">
+                                            false
+                                       </c:if>">
+
                                 <label for="nam">Nam</label>
                             </div>
                             <div
                                     class="person-body-container-content-bottom-left-row-value-radioGroup"
                             >
-                                <input type="radio" name="gender" id="nu" value="nu" />
+                                <input type="radio" name="gender" id="nu" value="nu"
+                                       checked="<c:if test="${user.getPhoneNumber() ne 'nu'}">
+                                            false
+                                       </c:if>">
+
                                 <label for="nu">Nữ</label>
                             </div>
                             <div
                                     class="person-body-container-content-bottom-left-row-value-radioGroup"
                             >
-                                <input type="radio" name="gender" id="khac" value="khac" />
+                                <input type="radio" name="gender" id="khac" value="khac"
+                                       checked="<c:if test="${user.getPhoneNumber() ne 'khac'}">
+                                            false
+                                       </c:if>">
                                 <label for="khac">Khác</label>
                             </div>
                         </div>
@@ -323,5 +337,34 @@
         </div>
     </div>
 </div>
+<form class="form-changePassword" method="post">
+    <label>Mật khẩu cũ: <br><input name="oldPW"></label> <br><br>
+    <label>Mật khẩu mới: <br><input name="newPW"></label> <br><br>
+    <label>Nhập lại mật khẩu mới: <br><input name="newAgainPW"></label>
+    <br>
+    <input type="submit">
+</form>
+<script>
+    let save = document.querySelector(".changePassword");
+    save.onclick = function(){
+        let el = document.querySelector(".form-changePassword")
+        el.style.display = 'block'
+        el.style.top = window.innerHeight/2-60+ 'px'
+        el.style.left = window.innerWidth/2-600+'px'
+        console.log(window.innerWidth, window.innerHeight)
+        document.querySelector('.person-body').style.opacity = 0.2
+        document.querySelector('.person-body').style.pointerEvents = 'none';
+    }
+</script>
+<style>
+    .form-changePassword{
+        width: 20%;
+        height: 200px;
+        position: absolute;
+        z-index: 1;
+        display: none;
+        background-color: darkgray;
+    }
+</style>
 </body>
 </html>
