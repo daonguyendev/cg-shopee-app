@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "HomeController", urlPatterns = {"", "/home"})
@@ -19,14 +20,18 @@ public class HomeController extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/home/home.jsp");
         try {
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/home/home.jsp");
             request.setAttribute("a", "home");
             dispatcher.forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         }
+        String a = request.getParameter("a");
+
     }
+
     public void destroy() {
     }
+
 }

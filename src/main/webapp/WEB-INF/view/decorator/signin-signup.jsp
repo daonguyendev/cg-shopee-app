@@ -29,6 +29,7 @@
         <c:when test="${a eq 'signin'} ">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/signin-form.css">
             <script src="${pageContext.request.contextPath}/resource/js/signin-form.js"></script>
+
         </c:when>
         <c:when test="${a eq 'signup'}">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/signup-form.css">
@@ -39,8 +40,18 @@
             <script src="${pageContext.request.contextPath}/resource/js/signin-form.js"></script>
         </c:otherwise>
     </c:choose>
+    <% Boolean failed = (Boolean) session.getAttribute("loginFailed");%>
+    <script>
+        function x() {
+            if (<%=failed%>) {
+                alert("<c:out value="${message}"/>");
+                <% HttpSession httpSession = request.getSession();
+                   httpSession.setAttribute("loginFailed",false); %>
+            }
+        }
+    </script>
 </head>
-<body>
+<body onload="x()">
 <div class="header">
     <div class="header-container">
         <div class="header-container-left">
@@ -48,13 +59,13 @@
             <div class="header-container-left-item2">
                 <c:choose>
                     <c:when test="${a eq 'signin'} ">
-                        <c:out value="${'Đăng nhập'}" />
+                        <c:out value="${'Đăng nhập'}"/>
                     </c:when>
                     <c:when test="${a eq 'signup'}">
-                        <c:out value="${'Đăng ký'}" />
+                        <c:out value="${'Đăng ký'}"/>
                     </c:when>
                     <c:otherwise>
-                        <c:out value="${'Đăng nhập'}" />
+                        <c:out value="${'Đăng nhập'}"/>
                     </c:otherwise>
                 </c:choose>
 
@@ -67,9 +78,9 @@
 </div>
 <div class="body">
     <div class="body-container">
-            <dec:body>
+        <dec:body>
 
-            </dec:body>
+        </dec:body>
     </div>
 </div>
 

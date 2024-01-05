@@ -1,3 +1,4 @@
+<%@ page import="com.codegym.cgshopeeapp.model.entity.User" %>
 <%@ taglib prefix="c"
            uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
@@ -9,9 +10,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8"
          language="java" %>
-
 <c:set var="user" value='${sessionScope["user"]}' />
-
 <div class="header-under">
 
 </div>
@@ -62,7 +61,8 @@
                        </c:when>
 
                     <c:otherwise>
-                        <a href="/user?a=ui" class="header-container-row1-right-item">${user.getName}</a>
+                        <a href="/user?a=ui" class="header-container-row1-right-item">${user.getName()}</a>
+                        <a href="/signin-signup?a=signout" class="header-container-row1-right-item">Đăng xuất</a>
 
                     </c:otherwise>
                 </c:choose>
