@@ -1,5 +1,7 @@
 package com.codegym.cgshopeeapp.controller;
 
+import com.codegym.cgshopeeapp.model.service.SignUpService;
+
 import java.io.*;
 
 
@@ -41,6 +43,30 @@ public class SignInSignUpController extends HttpServlet {
                 }
                 break;
         }
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String a = request.getParameter("a");
+        switch (a){
+            case "signup":
+                String email = request.getParameter("signup-email");
+                String password = request.getParameter("signup-password");
+                SignUpService signUpService = SignUpService.getInstance();
+                boolean isValid = signUpService.signup(email, password);
+                if (isValid) {
+                    message = "Thư xác thực đã được gửi tới email của bạn.";
+                } else {
+                    message = "Email này đã được dùng để đăng ký tài khoản";
+                }
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/content/signup-form.jsp");
+                request.setAttribute("a","signup");
+                request.setAttribute("message",message);
+                requestDispatcher.forward(request,response);
+                break;
+        }
+
+
 
 
     }
