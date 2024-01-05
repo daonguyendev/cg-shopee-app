@@ -1,11 +1,12 @@
 <decorators defaultdir="/WEB-INF/view/decorator">
     <exclude>
-        
-    </exclude>
+        <pattern>/load</pattern>
 
+    </exclude>
     <decorator name="default" page="default.jsp">
-        <pattern>/</pattern>
+<!--        <pattern>/</pattern>-->
         <pattern>/home</pattern>
+<!--        <pattern>/load</pattern>-->
         <pattern>/user</pattern>
         <pattern>/cart</pattern>
         <pattern>/product</pattern>

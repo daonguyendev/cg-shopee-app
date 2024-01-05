@@ -285,8 +285,9 @@
   font-size: 0.875rem;
   background-clip: content-box;
   transition: 0.5s;
+  text-decoration: none;
+  color: #000000;
 }
-
 
 .body-productContainer-product-group {
   border: 1px solid #e5e7eb;
@@ -322,17 +323,24 @@ transform: translateY(-5px);
   color: var(--shope-color);
 }
 
+.body-productContainer-product-unitPrice-origin {
+  color: #ccc;
+  text-decoration: line-through;
+}
+
 .body-loadMore{
     width: 100px;
     height: 50px;
     background-color: var(--shope-color);
     color: #fff;
     border: none;
-  margin: 10px;
+    margin: 10px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
 }
 
 .body-loadMore:hover{
     cursor: pointer;
     opacity: 0.9;
-
 }

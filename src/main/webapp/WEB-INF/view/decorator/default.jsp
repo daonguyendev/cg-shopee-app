@@ -67,6 +67,8 @@
 <c:choose>
     <c:when test = "${a eq 'home'}">
         <script src="${pageContext.request.contextPath}/resource/js/home.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/js/load-more.js"></script>
     </c:when>
 
     <c:when test = "${a eq 'ui'}">
@@ -80,6 +82,8 @@
     </c:when>
     <c:otherwise>
         <script src="${pageContext.request.contextPath}/resource/js/home.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/js/load-more.js"></script>
     </c:otherwise>
 </c:choose>
 </body>

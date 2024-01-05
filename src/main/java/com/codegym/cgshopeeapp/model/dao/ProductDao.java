@@ -12,7 +12,7 @@ import java.util.List;
 public class ProductDao {
     private static List<Product> products;
 
-    public static List<Product> getAllInfo() {
+    public static List<Product> getAllProduct() {
 
         products = new LinkedList<>();
         try {
@@ -28,7 +28,74 @@ public class ProductDao {
                 Product product = new Product();
 
                 product.setId(Integer.parseInt(resultSet.getString("id")));
-                product.setIdUser(resultSet.getString("user_id"));
+                product.setIdUser(resultSet.getString("id_user"));
+                product.setName(resultSet.getString("name"));
+                product.setOriginUnitPrice(Integer.parseInt(resultSet.getString("origin_unit_price")));
+                product.setPromote(Integer.parseInt(resultSet.getString("promote")));
+                product.setCurrentPrice(Integer.parseInt(resultSet.getString("current_price")));
+                product.setQuantity(Integer.parseInt(resultSet.getString("quantity")));
+                product.setUrl(resultSet.getString("url"));
+                products.add(product);
+
+            }
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return products;
+    }
+
+    public static List<Product> get6Product() {
+
+        products = new LinkedList<>();
+        try {
+            Connection connection = JdbcConnection.getConnection();
+            String query = "select * from product limit 6";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Product product = new Product();
+
+                product.setId(Integer.parseInt(resultSet.getString("id")));
+                product.setIdUser(resultSet.getString("id_user"));
+                product.setName(resultSet.getString("name"));
+                product.setOriginUnitPrice(Integer.parseInt(resultSet.getString("origin_unit_price")));
+                product.setPromote(Integer.parseInt(resultSet.getString("promote")));
+                product.setCurrentPrice(Integer.parseInt(resultSet.getString("current_price")));
+                product.setQuantity(Integer.parseInt(resultSet.getString("quantity")));
+                product.setUrl(resultSet.getString("url"));
+                products.add(product);
+
+            }
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return products;
+    }
+    public static List<Product> getnext6Product(int amount) {
+
+        products = new LinkedList<>();
+        try {
+            Connection connection = JdbcConnection.getConnection();
+            String query = "SELECT * FROM product\n" +
+                    "ORDER BY id\n" +
+                    "LIMIT 6 OFFSET ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,amount);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Product product = new Product();
+
+                product.setId(Integer.parseInt(resultSet.getString("id")));
+                product.setIdUser(resultSet.getString("id_user"));
                 product.setName(resultSet.getString("name"));
                 product.setOriginUnitPrice(Integer.parseInt(resultSet.getString("origin_unit_price")));
                 product.setPromote(Integer.parseInt(resultSet.getString("promote")));
@@ -48,9 +115,9 @@ public class ProductDao {
     public static void insert(Product product) {
         try {
             Connection connection = JdbcConnection.getConnection();
-            String query = "INSERT INTO product (name,origin_unit_price,promote,current_price,quantity,url) VALUES( ?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO product (id_user,name,origin_unit_price,promote,current_price,quantity,url) VALUES( ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, product.getId());
+            preparedStatement.setString(1, product.getIdUser());
             preparedStatement.setString(2, product.getName());
             preparedStatement.setInt(3, product.getOriginUnitPrice());
             preparedStatement.setInt(4, product.getPromote());
@@ -68,7 +135,7 @@ public class ProductDao {
         }
     }
 
-    public static void delete(int id) {
+    public static void deleteById(int id) {
         try {
             Connection connection = JdbcConnection.getConnection();
             String query = "DELETE FROM product WHERE id like ?";
@@ -111,10 +178,10 @@ public class ProductDao {
 
 
     //    kiem tra xem ton tai hay chua
-    public static boolean find(String email, String productName) {
+    public static boolean findByEmailAndName(String email, String productName) {
         try {
             Connection connection = JdbcConnection.getConnection();
-            String query = "select name,origin_unit_price,promote,current_price,quantity from user u join product p on u.email = p.product_id where p.product_name = ? and u.user_id = ?";
+            String query = "select name,origin_unit_price,promote,current_price,quantity from user u join product p on u.email = p.product_id where p.product_name = ? and u.id_user = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, productName);
             preparedStatement.setString(2, email);
@@ -132,12 +199,12 @@ public class ProductDao {
     }
 
 
-    public static void get(String email) {
+    public static void getByEmail(String email) {
 
         products = new LinkedList<>();
         try {
             Connection connection = JdbcConnection.getConnection();
-            String query = "select name,origin_unit_price,promote,current_price,quantity,url from user u join product p on u.email = p.product_id where  u.user_id = ?";
+            String query = "select name,origin_unit_price,promote,current_price,quantity,url from user u join product p on u.email = p.product_id where  u.id_user = ?";
 
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, email);
@@ -145,7 +212,7 @@ public class ProductDao {
             while (resultSet.next()) {
                 Product product = new Product();
                 product.setId(Integer.valueOf(resultSet.getString("id")));
-                product.setIdUser(resultSet.getString("user_id"));
+                product.setIdUser(resultSet.getString("id_user"));
                 product.setName(resultSet.getString("name"));
                 product.setOriginUnitPrice(Integer.valueOf(resultSet.getString("origin_unit_price")));
                 product.setPromote(Integer.valueOf(resultSet.getString("promote")));
@@ -153,7 +220,6 @@ public class ProductDao {
                 product.setQuantity(Integer.valueOf(resultSet.getString("quantity")));
                 product.setUrl(resultSet.getString("url"));
                 products.add(product);
-
             }
             connection.close();
         } catch (Exception e) {

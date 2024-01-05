@@ -89,7 +89,7 @@
                     </div>
                 </div>
             </div>
-            <a href="" class="header-container-row2-right">
+            <a href="/cart" class="header-container-row2-right">
                 <div class="header-container-row2-right-icon"></div>
             </a>
         </div>

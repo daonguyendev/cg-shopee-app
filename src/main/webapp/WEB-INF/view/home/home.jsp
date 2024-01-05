@@ -1,10 +1,15 @@
+<%@ taglib prefix="c"
+           uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 12/29/2023
+  Da`te: 12/29/2023
   Time: 8:50 AM
   To change this template use File | Settings | File Templates.
 --%>
+<c:set var="producuts"
+       value="${requestScope['products']}"/>
+
 <%@ page contentType="text/html;charset=UTF-8"
          language="java" %>
 <html>
@@ -174,174 +179,23 @@
 
     <!-- Product Container -->
     <div class="body-productContainer">
-        <div class="body-productContainer-product">
+        <c:forEach items="${producuts}" var="product">
+            <a href="${pageContext.request.contextPath}/add?id=${product.getId()}" class="body-productContainer-product">
             <div class="body-productContainer-product-group">
-                <div class="body-productContainer-product-prouctImg"></div>
+                <img src="${product.getUrl()}" class="body-productContainer-product-prouctImg"></img>
                 <div class="body-productContainer-product-productName">
-                    Túi xách nữ Platform đẹp khi đi chơi
+                        ${product.getName()}
                 </div>
                 <div class="body-productContainer-product-unitPrice">
-                    <sub>đ</sub>75.000
+                    <div class="body-productContainer-product-unitPrice-origin"><sub>đ</sub> ${product.getOriginUnitPrice()}</div>
+                    <div class="body-productContainer-product-unitPrice-sell"><sub>đ</sub> ${product.getCurrentPrice()}</div>
                 </div>
             </div>
-        </div>
-        <div class="body-productContainer-product">
-            <div class="body-productContainer-product-group">
-                <div class="body-productContainer-product-prouctImg"></div>
-                <div class="body-productContainer-product-productName">
-                    Túi xách nữ Platform đẹp khi đi chơi
-                </div>
-                <div class="body-productContainer-product-unitPrice">
-                    <sub>đ</sub>75.000
-                </div>
-            </div>
-        </div>
-        <div class="body-productContainer-product">
-            <div class="body-productContainer-product-group">
-                <div class="body-productContainer-product-prouctImg"></div>
-                <div class="body-productContainer-product-productName">
-                    Túi xách nữ Platform đẹp khi đi chơi
-                </div>
-                <div class="body-productContainer-product-unitPrice">
-                    <sub>đ</sub>75.000
-                </div>
-            </div>
-        </div>
-        <div class="body-productContainer-product">
-            <div class="body-productContainer-product-group">
-                <div class="body-productContainer-product-prouctImg"></div>
-                <div class="body-productContainer-product-productName">
-                    Túi xách nữ Platform đẹp khi đi chơi
-                </div>
-                <div class="body-productContainer-product-unitPrice">
-                    <sub>đ</sub>75.000
-                </div>
-            </div>
-        </div>
-        <div class="body-productContainer-product">
-            <div class="body-productContainer-product-group">
-                <div class="body-productContainer-product-prouctImg"></div>
-                <div class="body-productContainer-product-productName">
-                    Túi xách nữ Platform đẹp khi đi chơi
-                </div>
-                <div class="body-productContainer-product-unitPrice">
-                    <sub>đ</sub>75.000
-                </div>
-            </div>
-        </div>
-        <div class="body-productContainer-product">
-            <div class="body-productContainer-product-group">
-                <div class="body-productContainer-product-prouctImg"></div>
-                <div class="body-productContainer-product-productName">
-                    Túi xách nữ Platform đẹp khi đi chơi
-                </div>
-                <div class="body-productContainer-product-unitPrice">
-                    <sub>đ</sub>75.000
-                </div>
-            </div>
-        </div>
-        <div class="body-productContainer-product">
-            <div class="body-productContainer-product-group">
-                <div class="body-productContainer-product-prouctImg"></div>
-                <div class="body-productContainer-product-productName">
-                    Túi xách nữ Platform đẹp khi đi chơi
-                </div>
-                <div class="body-productContainer-product-unitPrice">
-                    <sub>đ</sub>75.000
-                </div>
-            </div>
-        </div>
-        <div class="body-productContainer-product">
-            <div class="body-productContainer-product-group">
-                <div class="body-productContainer-product-prouctImg"></div>
-                <div class="body-productContainer-product-productName">
-                    Túi xách nữ Platform đẹp khi đi chơi
-                </div>
-                <div class="body-productContainer-product-unitPrice">
-                    <sub>đ</sub>75.000
-                </div>
-            </div>
-        </div>
-        <div class="body-productContainer-product">
-            <div class="body-productContainer-product-group">
-                <div class="body-productContainer-product-prouctImg"></div>
-                <div class="body-productContainer-product-productName">
-                    Túi xách nữ Platform đẹp khi đi chơi
-                </div>
-                <div class="body-productContainer-product-unitPrice">
-                    <sub>đ</sub>75.000
-                </div>
-            </div>
-        </div>
-        <div class="body-productContainer-product">
-            <div class="body-productContainer-product-group">
-                <div class="body-productContainer-product-prouctImg"></div>
-                <div class="body-productContainer-product-productName">
-                    Túi xách nữ Platform đẹp khi đi chơi
-                </div>
-                <div class="body-productContainer-product-unitPrice">
-                    <sub>đ</sub>75.000
-                </div>
-            </div>
-        </div>
-        <div class="body-productContainer-product">
-            <div class="body-productContainer-product-group">
-                <div class="body-productContainer-product-prouctImg"></div>
-                <div class="body-productContainer-product-productName">
-                    Túi xách nữ Platform đẹp khi đi chơi
-                </div>
-                <div class="body-productContainer-product-unitPrice">
-                    <sub>đ</sub>75.000
-                </div>
-            </div>
-        </div>
-        <div class="body-productContainer-product">
-            <div class="body-productContainer-product-group">
-                <div class="body-productContainer-product-prouctImg"></div>
-                <div class="body-productContainer-product-productName">
-                    Túi xách nữ Platform đẹp khi đi chơi
-                </div>
-                <div class="body-productContainer-product-unitPrice">
-                    <sub>đ</sub>75.000
-                </div>
-            </div>
-        </div>
-        <div class="body-productContainer-product">
-            <div class="body-productContainer-product-group">
-                <div class="body-productContainer-product-prouctImg"></div>
-                <div class="body-productContainer-product-productName">
-                    Túi xách nữ Platform đẹp khi đi chơi
-                </div>
-                <div class="body-productContainer-product-unitPrice">
-                    <sub>đ</sub>75.000
-                </div>
-            </div>
-        </div>
-        <div class="body-productContainer-product">
-            <div class="body-productContainer-product-group">
-                <div class="body-productContainer-product-prouctImg"></div>
-                <div class="body-productContainer-product-productName">
-                    Túi xách nữ Platform đẹp khi đi chơi
-                </div>
-                <div class="body-productContainer-product-unitPrice">
-                    <sub>đ</sub>75.000
-                </div>
-            </div>
-        </div>
-        <div class="body-productContainer-product">
-            <div class="body-productContainer-product-group">
-                <div class="body-productContainer-product-prouctImg"></div>
-                <div class="body-productContainer-product-productName">
-                    Túi xách nữ Platform đẹp khi đi chơi
-                </div>
-                <div class="body-productContainer-product-unitPrice">
-                    <sub>đ</sub>75.000
-                </div>
-            </div>
-        </div>
+            </a>
+        </c:forEach>
     </div>
     <!-- End Product Container -->
-    <button class="body-loadMore" type="button">Xem thêm</button>
+    <button type="button" onclick="loadMore()" class="body-loadMore">Xem thêm</button>
 </div>
 </body>
 </html>
