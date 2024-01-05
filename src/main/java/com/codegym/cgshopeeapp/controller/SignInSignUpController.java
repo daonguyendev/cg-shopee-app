@@ -106,13 +106,10 @@ public class SignInSignUpController extends HttpServlet {
                         }
                         break;
                 }
-
             case "signup":
-                
                 break;
         }
     }
-
     public void destroy() {
     }
 }
