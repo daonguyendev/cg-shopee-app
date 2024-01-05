@@ -11,16 +11,14 @@ import java.util.List;
 
 public class ProductDao {
     private static List<Product> products;
+    public static List<Product> getProductInfo() {
 
-    public static List<Product> getAllInfo() {
 
         products = new LinkedList<>();
         try {
             Connection connection = JdbcConnection.getConnection();
             String query = "select * from product";
-
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -28,7 +26,7 @@ public class ProductDao {
                 Product product = new Product();
 
                 product.setId(Integer.parseInt(resultSet.getString("id")));
-                product.setIdUser(resultSet.getString("user_id"));
+                product.setIdUser(resultSet.getString("id_user"));
                 product.setName(resultSet.getString("name"));
                 product.setOriginUnitPrice(Integer.parseInt(resultSet.getString("origin_unit_price")));
                 product.setPromote(Integer.parseInt(resultSet.getString("promote")));
@@ -36,6 +34,7 @@ public class ProductDao {
                 product.setQuantity(Integer.parseInt(resultSet.getString("quantity")));
                 product.setUrl(resultSet.getString("url"));
                 products.add(product);
+
 
             }
             connection.close();
@@ -48,9 +47,9 @@ public class ProductDao {
     public static void insert(Product product) {
         try {
             Connection connection = JdbcConnection.getConnection();
-            String query = "INSERT INTO product (name,origin_unit_price,promote,current_price,quantity,url) VALUES( ?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO product (id_user,name,origin_unit_price,promote,current_price,quantity,url) VALUES( ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, product.getId());
+            preparedStatement.setString(1, product.getIdUser());
             preparedStatement.setString(2, product.getName());
             preparedStatement.setInt(3, product.getOriginUnitPrice());
             preparedStatement.setInt(4, product.getPromote());
@@ -109,8 +108,6 @@ public class ProductDao {
         }
     }
 
-
-    //    kiem tra xem ton tai hay chua
     public static boolean find(String email, String productName) {
         try {
             Connection connection = JdbcConnection.getConnection();
@@ -131,8 +128,8 @@ public class ProductDao {
         return false;
     }
 
-
     public static void get(String email) {
+
 
         products = new LinkedList<>();
         try {

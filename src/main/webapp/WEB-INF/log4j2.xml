@@ -4,12 +4,16 @@
         <Console name="LogToConsole" target="SYSTEM_OUT">
             <PatternLayout pattern="[%-5level] %d{dd-MM-yyyy HH:mm:ss} [%t] %c{1} - %msg%n"/>
         </Console>
-        <File name="LogToFile" fileName="logs/app-xml.log">
+        <File name="LogToFile" fileName="src/main/webapp/logs/app-xml.log">
             <PatternLayout pattern="[%-5level] %d{dd-MM-yyyy HH:mm:ss} [%t] %c{1} - %msg%n"/>
         </File>
     </Appenders>
     <Loggers>
-        <Root level="trace">
+        <Logger name="" level="debug" additivity="false">
+            <AppenderRef ref="LogToFile"/>
+            <AppenderRef ref="LogToConsole"/>
+        </Logger>
+        <Root level="info">
             <AppenderRef ref="LogToFile"/>
             <AppenderRef ref="LogToConsole"/>
         </Root>
