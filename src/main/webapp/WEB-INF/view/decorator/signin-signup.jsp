@@ -29,6 +29,7 @@
     <c:choose>
         <c:when test="${a eq 'signin'} ">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/signin-form.css">
+
         </c:when>
         <c:when test="${a eq 'signup'}">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/signup-form.css">
@@ -37,8 +38,9 @@
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/signin-form.css">
         </c:otherwise>
     </c:choose>
+
 </head>
-<body>
+<body onload="x()">
 <div class="header">
     <div class="header-container">
         <div class="header-container-left">
@@ -46,13 +48,13 @@
             <div class="header-container-left-item2">
                 <c:choose>
                     <c:when test="${a eq 'signin'} ">
-                        <c:out value="${'Đăng nhập'}" />
+                        <c:out value="${'Đăng nhập'}"/>
                     </c:when>
                     <c:when test="${a eq 'signup'}">
-                        <c:out value="${'Đăng ký'}" />
+                        <c:out value="${'Đăng ký'}"/>
                     </c:when>
                     <c:otherwise>
-                        <c:out value="${'Đăng nhập'}" />
+                        <c:out value="${'Đăng nhập'}"/>
                     </c:otherwise>
                 </c:choose>
 
@@ -65,9 +67,9 @@
 </div>
 <div class="body">
     <div class="body-container">
-            <dec:body>
+        <dec:body>
 
-            </dec:body>
+        </dec:body>
     </div>
 </div>
 <c:choose>
@@ -83,7 +85,8 @@
 </c:choose>
 <c:if test="${not empty message}">
     <script >
-        alert("<c:out value="${message}">a</c:out>")
+        function x(){
+        alert("<c:out value="${message}">a</c:out>")}
     </script>
 </c:if>
 </body>

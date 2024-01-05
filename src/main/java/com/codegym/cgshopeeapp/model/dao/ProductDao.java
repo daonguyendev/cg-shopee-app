@@ -11,16 +11,12 @@ import java.util.List;
 
 public class ProductDao {
     private static List<Product> products;
-
-    public static List<Product> getAllProduct() {
-
+    public static List<Product> getProductInfo() {
         products = new LinkedList<>();
         try {
             Connection connection = JdbcConnection.getConnection();
             String query = "select * from product";
-
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -104,6 +100,7 @@ public class ProductDao {
                 product.setUrl(resultSet.getString("url"));
                 products.add(product);
 
+
             }
             connection.close();
         } catch (Exception e) {
@@ -176,7 +173,6 @@ public class ProductDao {
         }
     }
 
-
     //    kiem tra xem ton tai hay chua
     public static boolean findByEmailAndName(String email, String productName) {
         try {
@@ -200,7 +196,6 @@ public class ProductDao {
 
 
     public static void getByEmail(String email) {
-
         products = new LinkedList<>();
         try {
             Connection connection = JdbcConnection.getConnection();
