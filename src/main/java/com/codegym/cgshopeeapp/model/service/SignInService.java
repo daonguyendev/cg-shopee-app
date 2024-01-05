@@ -19,9 +19,9 @@ public class SignInService {
 
     public boolean login(String email, String password) {
 
-        if (UserDao.find(email, password)) {
+        if (UserDao.findByEmailAndPassword(email, password)) {
 
-            if (UserDao.get(email, password).isStatus()) {
+            if (UserDao.getByEmailAndPassword(email, password).isStatus()) {
                 return true;
             } else {
                 return false;
@@ -31,7 +31,7 @@ public class SignInService {
     }
 
     public boolean loginCheckIsStatus(String email, String password) {
-        if (UserDao.find(email, password) && UserDao.get(email, password).isStatus()) {
+        if (UserDao.findByEmailAndPassword(email, password) && UserDao.getByEmailAndPassword(email, password).isStatus()) {
             return true;
         } else {
             return false;
@@ -41,13 +41,13 @@ public class SignInService {
     public String number;
 
     public void check(String email, String password) {
-        if (UserDao.find(email, password) && UserDao.get(email, password).isStatus()) {
+        if (UserDao.findByEmailAndPassword(email, password) && UserDao.getByEmailAndPassword(email, password).isStatus()) {
             number = "1";
         } else {
-            if (!UserDao.find(email, password)) {
+            if (!UserDao.findByEmailAndPassword(email, password)) {
                 number = "2";
 
-            } else if (UserDao.find(email, password) && !UserDao.get(email, password).isStatus()) {
+            } else if (UserDao.findByEmailAndPassword(email, password) && !UserDao.getByEmailAndPassword(email, password).isStatus()) {
                 number = "3";
             }
         }

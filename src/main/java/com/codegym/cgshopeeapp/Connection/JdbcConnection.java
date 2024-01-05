@@ -16,7 +16,6 @@ public class JdbcConnection {
     public static @Nullable Connection getConnection() {
         Connection connection;
         try {
-
             Class.forName(DRIVER);
             connection = DriverManager.getConnection(CONN_URL, USERNAME, PASSWORD);
             return connection;

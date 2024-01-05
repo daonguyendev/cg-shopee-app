@@ -12,7 +12,8 @@
     <title>Title</title>
 </head>
 <body>
-<form action="#" class="signup-container-content-item-2-form" method="post">
+<form action="/signin-signup" class="signup-container-content-item-2-form" method="post">
+    <input type="text" name="a" value="signup" hidden="hidden">
     <div class="signup-container-content-item-2-form-header">
         <div class="signup-container-content-item-2-form-header-item1">
             Đăng ký
@@ -50,7 +51,7 @@
                         class="signup-container-content-item-2-form-body-item-1-inputPassword"
                         placeholder="Mật khẩu"
                         name="signup-password"
-                        id=""
+                        id="signup-password"
                         required
                         onkeyup="checkInput(),checkInputMessage()"
                         onblur="checkInputMessage(),checkValidCorrectPassword(), checkRegexPassword()"
@@ -96,6 +97,7 @@
             <button
                     type="submit"
                     class="signup-container-content-item-2-form-body-item-1-submitsignup"
+                    id="signup-submit-button"
             >
                 ĐĂNG KÝ
             </button>
@@ -175,4 +177,5 @@
     </div>
 </form>
 </body>
+
 </html>

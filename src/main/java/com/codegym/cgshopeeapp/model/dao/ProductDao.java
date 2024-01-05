@@ -10,9 +10,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ProductDao {
-    private List<Product> products = null;
+    private static List<Product> products;
+    public static List<Product> getProductInfo() {
 
-    public List<Product> getProductInfo() {
 
         products = new LinkedList<>();
         try {
@@ -44,7 +44,7 @@ public class ProductDao {
         return products;
     }
 
-    public void insert(Product product) {
+    public static void insert(Product product) {
         try {
             Connection connection = JdbcConnection.getConnection();
             String query = "INSERT INTO product (id_user,name,origin_unit_price,promote,current_price,quantity,url) VALUES( ?, ?, ?, ?, ?, ?, ?)";
@@ -67,7 +67,7 @@ public class ProductDao {
         }
     }
 
-    public void delete(int id) {
+    public static void delete(int id) {
         try {
             Connection connection = JdbcConnection.getConnection();
             String query = "DELETE FROM product WHERE id like ?";
@@ -84,7 +84,7 @@ public class ProductDao {
         }
     }
 
-    public void update(Product product) {
+    public static void update(Product product) {
         try {
             Connection connection = JdbcConnection.getConnection();
             String query = "UPDATE product " +
@@ -108,7 +108,7 @@ public class ProductDao {
         }
     }
 
-    public boolean find(String email, String productName) {
+    public static boolean find(String email, String productName) {
         try {
             Connection connection = JdbcConnection.getConnection();
             String query = "select name,origin_unit_price,promote,current_price,quantity from user u join product p on u.email = p.product_id where p.product_name = ? and u.user_id = ?";
@@ -127,7 +127,9 @@ public class ProductDao {
         }
         return false;
     }
-    public void get(String email) {
+
+    public static void get(String email) {
+
 
         products = new LinkedList<>();
         try {

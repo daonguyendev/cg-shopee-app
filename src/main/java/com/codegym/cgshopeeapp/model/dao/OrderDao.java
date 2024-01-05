@@ -13,9 +13,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class OrderDao {
-    private List<Order> orders = null;
+    private static List<Order> orders = null;
 
-    public List<Order> getOrderInfor() {
+    public static List<Order> getOrderInfor() {
 
         orders = new LinkedList<>();
         try {
@@ -46,7 +46,7 @@ public class OrderDao {
         return orders;
     }
 
-    public void insert(Order order) {
+    public static void insert(Order order) {
         try {
             Connection connection = JdbcConnection.getConnection();
             String query = "INSERT INTO user (user_id,product_id,product_quantity,total_price,date_time) " +
@@ -68,7 +68,7 @@ public class OrderDao {
         }
     }
 
-    public void delete(Order order) {
+    public static void delete(Order order) {
         try {
             Connection connection = JdbcConnection.getConnection();
             String query = "DELETE FROM product WHERE id = ?";

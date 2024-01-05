@@ -15,6 +15,7 @@
 <c:set var="commonUrl"
        value="/WEB-INF/view/common"/>
 <c:set var="a" value="${requestScope['a']}"/>
+<c:set var="message" value="${requestScope['message']}"/>
 
 
 <!DOCTYPE html>
@@ -28,28 +29,16 @@
     <c:choose>
         <c:when test="${a eq 'signin'} ">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/signin-form.css">
-            <script src="${pageContext.request.contextPath}/resource/js/signin-form.js"></script>
 
         </c:when>
         <c:when test="${a eq 'signup'}">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/signup-form.css">
-            <script src="${pageContext.request.contextPath}/resource/js/signup-form.js"></script>
         </c:when>
         <c:otherwise>
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/signin-form.css">
-            <script src="${pageContext.request.contextPath}/resource/js/signin-form.js"></script>
         </c:otherwise>
     </c:choose>
-    <% Boolean failed = (Boolean) session.getAttribute("loginFailed");%>
-    <script>
-        function x() {
-            if (<%=failed%>) {
-                alert("<c:out value="${message}"/>");
-                <% HttpSession httpSession = request.getSession();
-                   httpSession.setAttribute("loginFailed",false); %>
-            }
-        }
-    </script>
+
 </head>
 <body onload="x()">
 <div class="header">
@@ -83,6 +72,22 @@
         </dec:body>
     </div>
 </div>
-
+<c:choose>
+    <c:when test="${a eq 'signin'} ">
+        <script src="${pageContext.request.contextPath}/resource/js/signin-form.js"></script>
+    </c:when>
+    <c:when test="${a eq 'signup'}">
+        <script src="${pageContext.request.contextPath}/resource/js/signup-form.js"></script>
+    </c:when>
+    <c:otherwise>
+        <script src="${pageContext.request.contextPath}/resource/js/signin-form.js"></script>
+    </c:otherwise>
+</c:choose>
+<c:if test="${not empty message}">
+    <script >
+        function x(){
+        alert("<c:out value="${message}">a</c:out>")}
+    </script>
+</c:if>
 </body>
 </html>
