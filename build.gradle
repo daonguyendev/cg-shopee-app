@@ -29,9 +29,12 @@ dependencies {
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
   implementation 'opensymphony:sitemesh:2.5.0'
   implementation 'javax.servlet:jstl:1.2'
-  implementation 'com.mysql:mysql-connector-j:8.0.33'
+  implementation 'com.mysql:mysql-connector-j:8.2.0'
   implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
   implementation 'org.apache.logging.log4j:log4j-api:2.17.1'
+  implementation 'com.sun.mail:javax.mail:1.6.2'
+  implementation 'javax.mail:javax.mail-api:1.6.2'
+
 
 
 
