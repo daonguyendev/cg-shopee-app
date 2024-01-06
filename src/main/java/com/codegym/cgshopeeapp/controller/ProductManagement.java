@@ -53,16 +53,17 @@ public class ProductManagement extends HttpServlet {
         User user = (User) httpSession.getAttribute("user");
         String email = user.getEmail();
         String a = request.getParameter("a");
+        List<String> category = ProductDao.getCategory();
+        request.setAttribute("category", category);
+        request.setAttribute("a", "pm");
+        Product product = new Product();
+        List<Product> products = ProductDao.get(email);
+        request.setAttribute("products", products);
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         }
-        Product product = new Product();
-        List<Product> products = ProductDao.get(email);
-        request.setAttribute("products", products);
-
-        List<String> category = ProductDao.getCategory();
         switch (a) {
             case "update":
                 product.setIdUser(email);
@@ -72,8 +73,6 @@ public class ProductManagement extends HttpServlet {
                 product.setQuantity(Integer.parseInt(request.getParameter("product-quantity")));
                 product.setUrl(request.getParameter("product-urlAvatar"));
                 product.setCategory(request.getParameter("category"));
-                request.setAttribute("category", category);
-                request.setAttribute("a", "pm");
                 if (!request.getParameter("product-id").isEmpty()) {
                     product.setId(Integer.valueOf(request.getParameter("product-id")));
                     ProductDao.update(product);
@@ -87,27 +86,19 @@ public class ProductManagement extends HttpServlet {
                     product.setUrl(request.getParameter("product-urlAvatar"));
                     product.setCategory(request.getParameter("category"));
                     ProductDao.insert(product);
-                    request.setAttribute("category", category);
-                    request.setAttribute("a", "pm");
                     response.sendRedirect(request.getContextPath() + "/product");
                 } else {
                     message ="Sản phẩm" + ' ' + product.getName() + ' ' + "đã tồn tại";
                     request.setAttribute("message",message);
                 }
-
                 break;
             case "delete":
                 int productId = Integer.parseInt(request.getParameter("productId"));
                 ProductDao.delete(productId);
-                request.setAttribute("products", products);
-                request.setAttribute("a", "pm");
                 response.sendRedirect(request.getContextPath() + "/product");
                 break;
         }
-
     }
-
     public void destroy() {
-
     }
 }
