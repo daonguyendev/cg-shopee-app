@@ -180,7 +180,8 @@
     <!-- Product Container -->
     <div class="body-productContainer">
         <c:forEach items="${products}" var="product">
-            <a href="${pageContext.request.contextPath}/add?id=${product.getId()}" class="body-productContainer-product">
+            <a      <c:if test="${product.getQuantity()<1}">style="opacity: 0.4; pointer-events: none"</c:if>
+                    href="${pageContext.request.contextPath}/add?id=${product.getId()}" class="body-productContainer-product">
             <div class="body-productContainer-product-group">
                 <img src="${product.getUrl()}" class="body-productContainer-product-prouctImg"></img>
                 <div class="body-productContainer-product-productName">
@@ -189,6 +190,10 @@
                 <div class="body-productContainer-product-unitPrice">
                     <div class="body-productContainer-product-unitPrice-origin"><sub>đ</sub> ${product.getOriginUnitPrice()}</div>
                     <div class="body-productContainer-product-unitPrice-sell"><sub>đ</sub> ${product.getCurrentPrice()}</div>
+
+                </div>
+                <div class="body-productContainer-product-productQuantity">
+                    Số lượng: ${product.getQuantity()}
                 </div>
             </div>
             </a>

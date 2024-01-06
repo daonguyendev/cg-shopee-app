@@ -26,7 +26,9 @@ public class PaymentController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     }
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+    @Override
+    protected void doPost(HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws ServletException, IOException {
         HttpSession httpSession = request.getSession();
         Cart cart = (Cart) httpSession.getAttribute("cart");
         List<Product> list = cart.getProductArrayList();

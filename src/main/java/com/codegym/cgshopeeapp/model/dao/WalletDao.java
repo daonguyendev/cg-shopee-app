@@ -1,6 +1,7 @@
 package com.codegym.cgshopeeapp.model.dao;
 
 import com.codegym.cgshopeeapp.Connection.JdbcConnection;
+import com.codegym.cgshopeeapp.model.entity.User;
 import com.codegym.cgshopeeapp.model.entity.Wallet;
 
 import java.sql.Connection;
@@ -41,6 +42,23 @@ public class WalletDao {
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+    public static void update(Wallet wallet) {
+        try {
+            Connection connection = JdbcConnection.getConnection();
+            String query = "UPDATE wallet SET id_user = ?, money = ? WHERE id_user = ? ";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, wallet.getIdUser());
+            preparedStatement.setInt(2, wallet.getMoney());
+            preparedStatement.setString(3, wallet.getIdUser());
+            if (preparedStatement.executeUpdate() > 0) {
+                System.out.println("Update product succuessfully.");
+            } else {
+                System.out.println("Failed to update product.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

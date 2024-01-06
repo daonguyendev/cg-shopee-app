@@ -308,3 +308,8 @@
   background-color: var(--shope-color);
   border: none;
 }
+
+.cart-body-container-footer-container-payment button:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}

@@ -45,8 +45,30 @@ public class HomeController extends HttpServlet {
         } catch (ServletException e) {
             throw new RuntimeException(e);
         }
-        String a = request.getParameter("a");
 
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Product> products = ProductDao.get6Product();
+        HttpSession httpSession = request.getSession();
+        User user = (User) httpSession.getAttribute("user");
+        if (user!=null){
+            int money = WalletDao.getById(user.getEmail()).getMoney();
+            httpSession.setAttribute("money",money);
+        }
+        try {
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/home/home.jsp");
+            message = request.getParameter("message");
+            if (message!=null){
+                request.setAttribute("message",message);
+            }
+            request.setAttribute("a", "home");
+            request.setAttribute("products",products);
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void destroy() {

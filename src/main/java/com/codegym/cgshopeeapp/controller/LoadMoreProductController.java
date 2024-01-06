@@ -31,18 +31,39 @@ public class LoadMoreProductController extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         for (Product p : products){
-            out.println("<a href=\"/add?id="+p.getId()+"\" class=\"body-productContainer-product\">\n" +
-                    "            <div class=\"body-productContainer-product-group\">\n" +
-                    "                <img src=\""+p.getUrl()+"\" class=\"body-productContainer-product-prouctImg\"></img>\n" +
-                    "                <div class=\"body-productContainer-product-productName\">\n" +
-                    "                    "+p.getName()+"\n" +
-                    "                </div>\n" +
-                    "                <div class=\"body-productContainer-product-unitPrice\">\n" +
-                    "                    <div class=\"body-productContainer-product-unitPrice-origin\"><sub>đ</sub>"+p.getOriginUnitPrice()+"</div>\n" +
-                    "                    <div class=\"body-productContainer-product-unitPrice-sell\"><sub>đ</sub>"+p.getCurrentPrice()+"</div>\n" +
-                    "                </div>\n" +
-                    "            </div>\n" +
-                    "        </a>");
+            if (p.getQuantity()>0) {
+                out.println("<a href=\"/add?id=" + p.getId() + "\" class=\"body-productContainer-product\">\n" +
+                        "            <div class=\"body-productContainer-product-group\">\n" +
+                        "                <img src=\"" + p.getUrl() + "\" class=\"body-productContainer-product-prouctImg\"></img>\n" +
+                        "                <div class=\"body-productContainer-product-productName\">\n" +
+                        "                    " + p.getName() + "\n" +
+                        "                </div>\n" +
+                        "                <div class=\"body-productContainer-product-unitPrice\">\n" +
+                        "                    <div class=\"body-productContainer-product-unitPrice-origin\"><sub>đ</sub>" + p.getOriginUnitPrice() + "</div>\n" +
+                        "                    <div class=\"body-productContainer-product-unitPrice-sell\"><sub>đ</sub>" + p.getCurrentPrice() + "</div>\n" +
+                        "                </div>\n" +
+                        "               <div class=\"body-productContainer-product-productQuantity\">\n" +
+                        "                    Số lượng: "+p.getQuantity()+"\n" +
+                        "                </div>"+
+                        "            </div>\n" +
+                        "        </a>");
+            } else {
+                out.println("<a style=\"opacity: 0.4; pointer-events: none\" href=\"/add?id=" + p.getId() + "\" class=\"body-productContainer-product\">\n" +
+                        "            <div class=\"body-productContainer-product-group\">\n" +
+                        "                <img src=\"" + p.getUrl() + "\" class=\"body-productContainer-product-prouctImg\"></img>\n" +
+                        "                <div class=\"body-productContainer-product-productName\">\n" +
+                        "                    " + p.getName() + "\n" +
+                        "                </div>\n" +
+                        "                <div class=\"body-productContainer-product-unitPrice\">\n" +
+                        "                    <div class=\"body-productContainer-product-unitPrice-origin\"><sub>đ</sub>" + p.getOriginUnitPrice() + "</div>\n" +
+                        "                    <div class=\"body-productContainer-product-unitPrice-sell\"><sub>đ</sub>" + p.getCurrentPrice() + "</div>\n" +
+                        "                </div>\n" +
+                        "<div class=\"body-productContainer-product-productQuantity\">\n" +
+                                "                    Số lượng: "+p.getQuantity()+"\n" +
+                                "                </div>"+
+                        "            </div>\n" +
+                        "        </a>");
+            }
         }
         out.flush();
         out.close();
