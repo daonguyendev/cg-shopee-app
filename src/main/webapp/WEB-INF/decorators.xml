@@ -10,6 +10,9 @@
         <pattern>/user</pattern>
         <pattern>/cart</pattern>
         <pattern>/product</pattern>
+        <pattern>/add</pattern>
+        <pattern>/delete</pattern>
+        <pattern>/payment</pattern>
     </decorator>
     <decorator name="signin-signup" page="signin-signup.jsp">
         <pattern>/signin-signup</pattern>

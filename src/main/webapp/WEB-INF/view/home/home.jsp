@@ -7,7 +7,7 @@
   Time: 8:50 AM
   To change this template use File | Settings | File Templates.
 --%>
-<c:set var="producuts"
+<c:set var="products"
        value="${requestScope['products']}"/>
 
 <%@ page contentType="text/html;charset=UTF-8"
@@ -179,7 +179,7 @@
 
     <!-- Product Container -->
     <div class="body-productContainer">
-        <c:forEach items="${producuts}" var="product">
+        <c:forEach items="${products}" var="product">
             <a href="${pageContext.request.contextPath}/add?id=${product.getId()}" class="body-productContainer-product">
             <div class="body-productContainer-product-group">
                 <img src="${product.getUrl()}" class="body-productContainer-product-prouctImg"></img>

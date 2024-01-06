@@ -16,6 +16,7 @@
        value="/WEB-INF/view/common"/>
 <c:set var="a"
        value="${requestScope['a']}"/>
+<c:set var="message" value="${requestScope['message']}"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,9 +48,8 @@
         </c:otherwise>
     </c:choose>
 
-
 </head>
-<body>
+<body <c:if test="${not empty message}">onload="x()"</c:if> >
 <jsp:include
         page="${commonUrl}/header.jsp"></jsp:include>
 
@@ -86,5 +86,11 @@
         <script src="${pageContext.request.contextPath}/resource/js/load-more.js"></script>
     </c:otherwise>
 </c:choose>
+<c:if test="${not empty message}">
+    <script >
+        function x(){
+            alert("<c:out value="${message}">a</c:out>")}
+    </script>
+</c:if>
 </body>
 </html>

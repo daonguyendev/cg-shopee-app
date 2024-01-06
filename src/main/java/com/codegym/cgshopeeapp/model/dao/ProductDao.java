@@ -195,7 +195,7 @@ public class ProductDao {
     }
 
 
-    public static void getByEmail(String email) {
+    public static List<Product> getByEmail(String email) {
         products = new LinkedList<>();
         try {
             Connection connection = JdbcConnection.getConnection();
@@ -220,5 +220,34 @@ public class ProductDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return products;
+    }
+    public static Product getById(int id) {
+        products = new LinkedList <>();
+        Product product = null;
+        try {
+            Connection connection = JdbcConnection.getConnection();
+            String query = "select * from product p where  p.id = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                product = new Product();
+                product.setId(Integer.valueOf(resultSet.getString("id")));
+                product.setIdUser(resultSet.getString("id_user"));
+                product.setName(resultSet.getString("name"));
+                product.setOriginUnitPrice(Integer.valueOf(resultSet.getString("origin_unit_price")));
+                product.setPromote(Integer.valueOf(resultSet.getString("promote")));
+                product.setCurrentPrice(Integer.valueOf(resultSet.getString("current_price")));
+                product.setQuantity(Integer.valueOf(resultSet.getString("quantity")));
+                product.setUrl(resultSet.getString("url"));
+                products.add(product);
+            }
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return product;
     }
 }
