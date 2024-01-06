@@ -19,7 +19,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head onload="alertExist()">
     <meta charset="UTF-8"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0"/>
@@ -46,7 +46,12 @@
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/home.css">
         </c:otherwise>
     </c:choose>
-
+    <c:if test="${not empty message}">
+        <script >
+            function alertExist(){
+                alert("<c:out value="${message}">a</c:out>")}
+        </script>
+    </c:if>
 
 </head>
 <body>
@@ -82,5 +87,6 @@
         <script src="${pageContext.request.contextPath}/resource/js/home.js"></script>
     </c:otherwise>
 </c:choose>
+
 </body>
 </html>

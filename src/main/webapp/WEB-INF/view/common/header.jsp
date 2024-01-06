@@ -19,9 +19,21 @@
     <div class="header-container">
         <div class="header-container-row1">
             <div class="header-container-row1-left">
-                <a href="" class="header-container-row1-left-item"
-                >Kênh người bán</a
-                >
+
+                <c:choose >
+                    <c:when test="${user.getRole() == 'Shop'}">
+                        <a href="/product" class="header-container-row1-left-item"
+                        >Kênh người bán</a
+                        >
+                    </c:when>
+                    <c:otherwise>
+                        <a href="" class="header-container-row1-left-item"
+                        >Kênh người bán</a
+                        >
+                    </c:otherwise>
+                </c:choose>
+
+
                 <div class="header-container-row1-left-item">|</div>
                 <a href="" class="header-container-row1-left-item">
                     Trở thành người bán
@@ -40,6 +52,7 @@
                             href="https://www.instagram.com/Shopee_VN/"
                     ></a>
                 </div>
+
             </div>
             <div class="header-container-row1-right">
                 <div class="header-container-row1-right-item">
