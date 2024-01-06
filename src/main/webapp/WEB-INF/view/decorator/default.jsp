@@ -16,6 +16,7 @@
        value="/WEB-INF/view/common"/>
 <c:set var="a"
        value="${requestScope['a']}"/>
+<c:set var="message" value="${requestScope['message']}"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,9 +54,8 @@
         </c:otherwise>
     </c:choose>
 
-
 </head>
-<body>
+<body <c:if test="${not empty message}">onload="x()"</c:if> >
 <jsp:include
         page="${commonUrl}/header.jsp"></jsp:include>
 
@@ -73,6 +73,8 @@
 <c:choose>
     <c:when test = "${a eq 'home'}">
         <script src="${pageContext.request.contextPath}/resource/js/home.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/js/load-more.js"></script>
     </c:when>
 
     <c:when test = "${a eq 'ui'}">
@@ -86,8 +88,19 @@
     </c:when>
     <c:otherwise>
         <script src="${pageContext.request.contextPath}/resource/js/home.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/js/load-more.js"></script>
     </c:otherwise>
 </c:choose>
+<<<<<<< HEAD
 
+=======
+<c:if test="${not empty message}">
+    <script >
+        function x(){
+            alert("<c:out value="${message}">a</c:out>")}
+    </script>
+</c:if>
+>>>>>>> ad0562a4c38e61a63fc133287cd1c59ab8ea7a2b
 </body>
 </html>

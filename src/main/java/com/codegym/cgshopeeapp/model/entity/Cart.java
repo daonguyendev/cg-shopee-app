@@ -7,6 +7,8 @@ public class Cart {
     private int totalBill;
 
     public Cart() {
+        productArrayList = new ArrayList <>();
+        totalBill = 0;
     }
 
     public ArrayList <Product> getProductArrayList() {

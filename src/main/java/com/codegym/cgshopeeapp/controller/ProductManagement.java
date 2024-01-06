@@ -33,7 +33,7 @@ public class ProductManagement extends HttpServlet {
         User user = (User) httpSession.getAttribute("user");
         String email = user.getEmail();
         try {
-            List<Product> products = ProductDao.get(email);
+            List<Product> products = ProductDao.getByEmail(email);
             List<String> category = ProductDao.getCategory();
             request.setAttribute("products", products);
             request.setAttribute("category", category);
@@ -57,7 +57,7 @@ public class ProductManagement extends HttpServlet {
         request.setAttribute("category", category);
         request.setAttribute("a", "pm");
         Product product = new Product();
-        List<Product> products = ProductDao.get(email);
+        List<Product> products = ProductDao.getByEmail(email);
         request.setAttribute("products", products);
         try {
             dispatcher.forward(request, response);
@@ -77,7 +77,7 @@ public class ProductManagement extends HttpServlet {
                     product.setId(Integer.valueOf(request.getParameter("product-id")));
                     ProductDao.update(product);
                     response.sendRedirect(request.getContextPath() + "/product");
-                } else if (!ProductDao.findByName(email,product.getName())) {
+                } else if (!ProductDao.findByNameAndEmail(email,product.getName())) {
                     product.setIdUser(email);
                     product.setName(request.getParameter("product-name"));
                     product.setOriginUnitPrice(Integer.valueOf(request.getParameter("product-originPrice")));
@@ -94,7 +94,7 @@ public class ProductManagement extends HttpServlet {
                 break;
             case "delete":
                 int productId = Integer.parseInt(request.getParameter("productId"));
-                ProductDao.delete(productId);
+                ProductDao.deleteById(productId);
                 response.sendRedirect(request.getContextPath() + "/product");
                 break;
         }

@@ -11,6 +11,7 @@
 <%@ page contentType="text/html;charset=UTF-8"
          language="java" %>
 <c:set var="user" value='${sessionScope["user"]}' />
+<c:set var="money" value='${sessionScope["money"]}' />
 <div class="header-under">
 
 </div>
@@ -55,6 +56,9 @@
 
             </div>
             <div class="header-container-row1-right">
+                <div class="header-container-row1-right-item">
+                    <span class="ti-wallet"></span> ${money}
+                </div>
                 <div class="header-container-row1-right-item">
                     <span class="ti-bell"></span> Thông báo
                 </div>
@@ -102,7 +106,7 @@
                     </div>
                 </div>
             </div>
-            <a href="" class="header-container-row2-right">
+            <a href="/cart" class="header-container-row2-right">
                 <div class="header-container-row2-right-icon"></div>
             </a>
         </div>
