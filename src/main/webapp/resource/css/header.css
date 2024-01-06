@@ -9,12 +9,12 @@
   --shope-color: #ee4d2d;
 }
 
-a {
+.header-container a {
   text-decoration: none;
   color: #fff;
 }
 
-a:hover {
+.header-container a:hover {
   opacity: 0.8;
 }
 

@@ -20,6 +20,7 @@ public class User {
 
     public User(String email, String password, String verifyCode, boolean status) {
         this.email = email;
+        this.name = email;
         this.password = password;
         this.verifyCode = verifyCode;
         this.status = status;
