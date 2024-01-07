@@ -285,8 +285,9 @@
   font-size: 0.875rem;
   background-clip: content-box;
   transition: 0.5s;
+  text-decoration: none;
+  color: #000000;
 }
-
 
 .body-productContainer-product-group {
   border: 1px solid #e5e7eb;
@@ -315,11 +316,24 @@ transform: translateY(-5px);
   padding: 10px 5px;
 }
 
+.body-productContainer-product-productQuantity{
+  flex: 1;
+  padding: 10px 5px;
+  font-size: 0.875rem;
+  color: rgba(0,0,0,0.5);
+  margin-top: 5px;
+}
+
 .body-productContainer-product-unitPrice {
   height: 25px;
   padding: 5px;
   display: flex;
   color: var(--shope-color);
+}
+
+.body-productContainer-product-unitPrice-origin {
+  color: #ccc;
+  text-decoration: line-through;
 }
 
 .body-loadMore{
@@ -328,11 +342,13 @@ transform: translateY(-5px);
     background-color: var(--shope-color);
     color: #fff;
     border: none;
-  margin: 10px;
+    margin: 10px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
 }
 
 .body-loadMore:hover{
     cursor: pointer;
     opacity: 0.9;
-
 }
