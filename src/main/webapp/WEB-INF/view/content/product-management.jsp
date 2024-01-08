@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -7,9 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8"
          language="java" %>
-
-
-<div class="product-body">
+<div class="product-body" >
     <div class="product-container">
         <div class="product-container-row1">
             <div class="product-container-row1-item">id</div>
@@ -33,167 +32,156 @@
 
         <div class="product-container-row2">
             <!-- Sản phẩm -->
-            <div class="product-container-row2-item">
-                <div class="product-container-row2-item-information">1</div>
-                <div class="product-container-row2-item-information">
-                    <img
-                            class="product-container-row2-item-information-img"
-                            src="https://down-vn.img.susercontent.com/file/sg-11134201-7rblr-lo2dz1cwu1f4b6"
-                            alt="product-avatar"
-                    />
-                </div>
-                <div class="product-container-row2-item-information">
-                    Chuột logitech
-                </div>
-                <div class="product-container-row2-item-information">audi</div>
-                <div class="product-container-row2-item-information">20000</div>
-                <div class="product-container-row2-item-information">18000</div>
-                <div class="product-container-row2-item-information">200</div>
-                <div class="product-container-row2-item-information">
-              <span
-                      class="product-container-row2-item-information-edit ti-pencil"
-              ></span>
-                    <a
-                            class="ti-trash product-container-row2-item-information-delete"
-                            href=""
-                    ></a>
-                </div>
-            </div>
-            <!-- Kết thúc sản phẩm -->
-            <!-- Sản phẩm -->
-            <div class="product-container-row2-item">
-                <div class="product-container-row2-item-information">1</div>
-                <div class="product-container-row2-item-information">
-                    <img
-                            class="product-container-row2-item-information-img"
-                            src="https://down-vn.img.susercontent.com/file/sg-11134201-7rblr-lo2dz1cwu1f4b6"
-                            alt="product-avatar"
-                    />
-                </div>
-                <div class="product-container-row2-item-information">
-                    Chuột logitech G403
-                </div>
-                <div class="product-container-row2-item-information">audi</div>
-                <div class="product-container-row2-item-information">30000</div>
-                <div class="product-container-row2-item-information">18000</div>
-                <div class="product-container-row2-item-information">100</div>
-                <div class="product-container-row2-item-information">
-              <span
-                      class="product-container-row2-item-information-edit ti-pencil"
-              ></span>
-                    <a
-                            class="ti-trash product-container-row2-item-information-delete"
-                            href=""
-                    ></a>
-                </div>
-            </div>
-            <!-- Kết thúc sản phẩm -->
-          </div>
-        </div>
-      </div>
+            <c:forEach items="${products}" var="product">
 
-      <!-- Form thêm sản phẩm -->
-            <div class="addProduct-container">
-                <form method="post" action="" class="addProduct-container-form">
-                    <input type="text" name="a" id="a-form" hidden />
-                    <input type="text" name="product-id" id="product-id-form" hidden />
-                    <div class="addProduct-container-form-cancel">
-                        <span class="ti-close addProduct-container-form-cancel-button"></span>
-                    </div>
-                    <div class="addProduct-container-form-item">
-                        <label class="addProduct-container-form-item-label" for="product-name-form"
-                        >Tên sản phẩm*</label
-                        >
-                        <input
-                                class="addProduct-container-form-item-input"
-                                type="text"
-                                name="product-name"
-                                id="product-name-form"
-                                required
+                <div class="product-container-row2-item">
+                    <div class="product-container-row2-item-information">${product.getId()}</div>
+                    <div class="product-container-row2-item-information">
+                        <img
+                                class="product-container-row2-item-information-img"
+                                src="${product.getUrl()}"
+                                alt="product-avatar"
                         />
                     </div>
-                    <div class="addProduct-container-form-item">
-                        <label
-                                class="addProduct-container-form-item-label"
-                                for="category-form"
-                        >Phân loại*</label
-                        >
-                        <select name="category" id="category-form">
-                            <option value="volvo">volvo</option>
-                            <option value="saab">saab</option>
-                            <option value="mercedes">mercedes</option>
-                            <option value="audi">audi</option>
-                        </select>
+                    <div class="product-container-row2-item-information">
+                            ${product.getName()}
                     </div>
-                    <div class="addProduct-container-form-item">
-                        <label
-                                class="addProduct-container-form-item-label"
-                                for="product-originPrice-form"
-                        >Giá gốc* (VNĐ)</label
-                        >
-                        <input
-                                class="addProduct-container-form-item-input"
-                                type="text"
-                                name="product-originPrice"
-                                id="product-originPrice-form"
-                                required
-                        />
+                    <div class="product-container-row2-item-information">${product.getCategory()}</div>
+                    <div class="product-container-row2-item-information">${product.getOriginUnitPrice()}</div>
+                    <div class="product-container-row2-item-information">${product.getCurrentPrice()}</div>
+                    <div class="product-container-row2-item-information">${product.getQuantity()}</div>
+                    <div class="product-container-row2-item-information">
+                        <span class="product-container-row2-item-information-edit ti-pencil"></span>
+                        <a id="deleteLink" class="ti-trash product-container-row2-item-information-delete" href=""></a>
+                        <form action="/product" method="post">
+                            <input type="hidden" name="a" value="delete">
+                            <input type="hidden" name="productId" value="${product.getId()}">
+
+                            <div id="confirmationPopup" class="popup">
+                                <div class="popup-content">
+                                    <h3>Bạn có chắc là sẽ xóa sản phẩm này không ? </h3>
+                                    <button id="cancelButton" type="reset">Không đồng ý</button>
+                                    <button id="confirmButton">Đồng ý</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="addProduct-container-form-item">
-                        <label
-                                class="addProduct-container-form-item-label"
-                                for="product-sellPrice-form"
-                        >Giá bán* (VNĐ)</label
-                        >
-                        <input
-                                class="addProduct-container-form-item-input"
-                                type="text"
-                                name="product-sellPrice"
-                                id="product-sellPrice-form"
-                                required
-                        />
-                    </div>
-                    <div class="addProduct-container-form-item">
-                        <label
-                                class="addProduct-container-form-item-label"
-                                for="product-quantity"
-                        >Số lượng*</label
-                        >
-                        <input
-                                class="addProduct-container-form-item-input"
-                                type="text"
-                                name="product-quantity"
-                                id="product-quantity-form"
-                                required
-                        />
-                    </div>
-                    <div class="addProduct-container-form-item">
-                        <label
-                                class="addProduct-container-form-item-label"
-                                for="product-urlAvatar"
-                        >Link ảnh sản phẩm*</label
-                        >
-                        <input
-                                class="addProduct-container-form-item-input"
-                                type="url"
-                                name="product-urlAvatar"
-                                id="product-urlAvatar-form"
-                                required
-                        />
-                    </div>
-                    <div class="addProduct-container-form-buttonGroup">
-                        <button
-                                class="addProduct-container-form-buttonGroup-cancel"
-                                type="button"
-                        >
-                            Hủy
-                        </button>
-                        <button
-                                class="addProduct-container-form-buttonGroup-save"
-                                type="submit"
-                        >
-                            Lưu
-                        </button>
-                    </div>
-                </form>
-            </div>
+                </div>
+            </c:forEach>
+            <!-- Kết thúc sản phẩm -->
+        </div>
+    </div>
+</div>
+
+<!-- Form thêm sản phẩm -->
+<div class="addProduct-container">
+    <form method="post" action="/product" class="addProduct-container-form">
+        <input type="hidden" name="a" value="update" accept-charset="UTF-8">
+        <input type="text" name="a" id="a-form" hidden/>
+        <input type="text" name="product-id" value="${product.getId()}" id="product-id-form" hidden/>
+        <div class="addProduct-container-form-cancel">
+            <span class="ti-close addProduct-container-form-cancel-button"></span>
+        </div>
+        <div class="addProduct-container-form-item">
+            <label class="addProduct-container-form-item-label" for="product-name-form"
+            >Tên sản phẩm*</label
+            >
+            <input
+                    class="addProduct-container-form-item-input"
+                    type="text"
+                    name="product-name"
+                    id="product-name-form"
+                    accept-charset="UTF-8"
+                    required
+            />
+        </div>
+        <div class="addProduct-container-form-item">
+            <label
+                    class="addProduct-container-form-item-label"
+                    for="category-form"
+            >Phân loại*</label
+            >
+
+            <select name="category" id="category-form"  accept-charset="UTF-8">
+                <c:forEach items="${category}" var="categoryValue">
+                    <option
+<%--                            value="${categoryValue}"--%>
+                    >${categoryValue}</option>
+                </c:forEach>
+            </select>
+
+        </div>
+        <div class="addProduct-container-form-item">
+            <label
+                    class="addProduct-container-form-item-label"
+                    for="product-originPrice-form"
+            >Giá gốc* (VNĐ)</label>
+            <input
+                    class="addProduct-container-form-item-input"
+                    type="text"
+                    name="product-originPrice"
+                    id="product-originPrice-form"
+                    required
+            />
+        </div>
+        <div class="addProduct-container-form-item">
+            <label
+                    class="addProduct-container-form-item-label"
+                    for="product-sellPrice-form"
+            >Giá bán* (VNĐ)</label
+            >
+            <input
+                    class="addProduct-container-form-item-input"
+                    type="text"
+                    name="product-sellPrice"
+                    id="product-sellPrice-form"
+                    required
+            />
+        </div>
+        <div class="addProduct-container-form-item">
+            <label
+                    class="addProduct-container-form-item-label"
+                    form="product-quantity"
+            >Số lượng*</label
+            >
+            <input
+                    class="addProduct-container-form-item-input"
+                    type="text"
+                    name="product-quantity"
+                    id="product-quantity-form"
+                    required
+            />
+        </div>
+        <div class="addProduct-container-form-item">
+            <label
+                    class="addProduct-container-form-item-label"
+                    form="product-urlAvatar"
+            >Link ảnh sản phẩm*</label
+            >
+            <input
+                    class="addProduct-container-form-item-input"
+                    type="url"
+                    name="product-urlAvatar"
+                    id="product-urlAvatar-form"
+                    required
+            />
+        </div>
+        <div class="addProduct-container-form-buttonGroup">
+            <button
+                    class="addProduct-container-form-buttonGroup-cancel"
+                    type="button"
+            >
+                Hủy
+            </button>
+            <button
+                    class="addProduct-container-form-buttonGroup-save"
+                    type="submit"
+                    name="modifyProduct"
+            >
+                Lưu
+            </button>
+        </div>
+    </form>
+
+</div>
+<%--</div>--%>

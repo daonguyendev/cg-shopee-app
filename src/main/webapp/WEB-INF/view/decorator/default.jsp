@@ -20,7 +20,13 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<c:if test="${not empty message}">
+    <script >
+        function alertExist(){
+            alert("<c:out value="${message}">a</c:out>")}
+    </script>
+</c:if>
+<head onload="alertExist()">
     <meta charset="UTF-8"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0"/>
@@ -86,11 +92,15 @@
         <script src="${pageContext.request.contextPath}/resource/js/load-more.js"></script>
     </c:otherwise>
 </c:choose>
+<<<<<<< HEAD
+
+=======
 <c:if test="${not empty message}">
     <script >
         function x(){
             alert("<c:out value="${message}">a</c:out>")}
     </script>
 </c:if>
+>>>>>>> ad0562a4c38e61a63fc133287cd1c59ab8ea7a2b
 </body>
 </html>

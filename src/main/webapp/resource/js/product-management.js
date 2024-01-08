@@ -7,9 +7,7 @@ let editProductButton = document.querySelectorAll(".product-container-row2-item-
 
 function closeForm() {
     form.style.display = "none";
-    // console.log("a");
 }
-
 function openAddProductForm() {
     document.querySelector(".addProduct-container-form").reset();
     form.style.display = "flex";
@@ -42,3 +40,37 @@ editProductButton.forEach(element => {
         document.getElementById("product-urlAvatar-form").value = parent.children[1].children[0].src.trim();
     });
 })
+
+
+//
+document.querySelectorAll(".product-container-row2-item-information-delete").forEach(function(deleteLink) {
+    deleteLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        var confirmationPopup = this.parentNode.querySelector(".popup");
+        confirmationPopup.style.display = "block";
+
+        var cancelButton = confirmationPopup.querySelector("#cancelButton");
+        cancelButton.addEventListener("click", function() {
+            confirmationPopup.style.display = "none";
+        });
+
+        // var confirmButton = confirmationPopup.querySelector("#confirmButton");
+        // confirmButton.addEventListener("click", function() {
+        //     var productId = this.parentNode.parentNode.querySelector(".product-container-row2-item-information").textContent.trim();
+
+            // var form = document.createElement("form");
+            // form.setAttribute("action", "/product");
+            // form.setAttribute("method", "post");
+            //
+            // var input = document.createElement("input");
+            // input.setAttribute("type", "hidden");
+            // input.setAttribute("name", "productId");
+            // input.setAttribute("value", productId);
+
+            // form.appendChild(input);
+            // document.body.appendChild(form);
+            // form.submit();
+        });
+    });
+
+// });
