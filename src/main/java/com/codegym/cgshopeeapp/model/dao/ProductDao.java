@@ -1,6 +1,7 @@
 package com.codegym.cgshopeeapp.model.dao;
 
 import com.codegym.cgshopeeapp.Connection.JdbcConnection;
+import com.codegym.cgshopeeapp.model.entity.Category;
 import com.codegym.cgshopeeapp.model.entity.Product;
 
 import java.sql.Connection;
@@ -192,7 +193,6 @@ public class ProductDao {
         }
         return false;
     }
-
     public static List<Product> getByEmail(String email) {
         products = new LinkedList<>();
         try {
@@ -220,7 +220,6 @@ public class ProductDao {
         }
         return products;
     }
-
     public static List<String> getCategory() {
         List<String> category = new LinkedList<>();
         try {
@@ -238,7 +237,6 @@ public class ProductDao {
         }
         return category;
     }
-
     public static Product getById(int id) {
         products = new LinkedList<>();
         Product product = null;
@@ -266,5 +264,51 @@ public class ProductDao {
             e.printStackTrace();
         }
         return product;
+    }
+    public static List<Category> getCategoryInfo() {
+        List <Category> category = new LinkedList<>();
+        try {
+            Connection connection = JdbcConnection.getConnection();
+            String query = "select name,url from category";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Category oneCategory = new Category();
+                oneCategory.setName(resultSet.getString("name"));
+                oneCategory.setUrl(resultSet.getString("url"));
+                category.add(oneCategory);
+            }
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return category;
+    }
+    public static List<Product> getProductCategoryInfo(String category) {
+        List <Product> productList = new LinkedList<>();
+        try {
+            Connection connection = JdbcConnection.getConnection();
+            String query = "select * from product p where  p.category =?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, category);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+               Product product = new Product();
+                product.setId(Integer.valueOf(resultSet.getString("id")));
+                product.setIdUser(resultSet.getString("id_user"));
+                product.setName(resultSet.getString("name"));
+                product.setOriginUnitPrice(Integer.valueOf(resultSet.getString("origin_unit_price")));
+                product.setPromote(Integer.valueOf(resultSet.getString("promote")));
+                product.setCurrentPrice(Integer.valueOf(resultSet.getString("current_price")));
+                product.setQuantity(Integer.valueOf(resultSet.getString("quantity")));
+                product.setUrl(resultSet.getString("url"));
+                product.setCategory(resultSet.getString("category"));
+                productList.add(product);
+            }
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return productList;
     }
 }

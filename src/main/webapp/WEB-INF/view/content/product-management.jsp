@@ -101,7 +101,6 @@
                     for="category-form"
             >Phân loại*</label
             >
-
             <select name="category" id="category-form"  accept-charset="UTF-8">
                 <c:forEach items="${category}" var="categoryValue">
                     <option
