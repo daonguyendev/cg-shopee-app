@@ -224,11 +224,11 @@ public class ProductDao {
         List<String> category = new LinkedList<>();
         try {
             Connection connection = JdbcConnection.getConnection();
-            String query = "select distinct category from product;";
+            String query = "select distinct name from category;";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                String categoryValue = resultSet.getString("category");
+                String categoryValue = resultSet.getString("name");
                 category.add(categoryValue);
             }
             connection.close();
