@@ -316,5 +316,25 @@
   color: #999;
 }
 
+.changePhoneNumber {
+  color: #ee4d2d;
+  cursor: pointer;
+}
+.form-changePassword, .form-changePhoneNumber{
+  width: 20%;
+  height: 200px;
+  position: absolute;
+  z-index: 1;
+  display: none;
+  background-color: darkgray;
+}
+
+.form-changePassword > span, .form-changePhoneNumber >span {
+  cursor: pointer;
+  background-color: red;
+  position: relative;
+  top: -150px;
+  left: 230px;
+}
 
 
