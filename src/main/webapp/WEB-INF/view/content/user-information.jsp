@@ -164,7 +164,8 @@
                 </div>
             </div>
             <div class="person-body-container-content-bottom">
-                <form action="" method="post" class="person-body-container-content-bottom-left">
+                <form action="/user" method="post" class="person-body-container-content-bottom-left">
+                    <input style="display: none" name="action" value="saveChange">
                     <div class="person-body-container-content-bottom-left-row">
                         <div
                                 class="person-body-container-content-bottom-left-row-label"
@@ -277,7 +278,7 @@
                             <div
                                     class="person-body-container-content-bottom-left-row-value-dayOfBirth"
                             >
-                                <input name="dayOfBirth" type="date" value="2013-01-08" />
+                                <input name="dayOfBirth" type="date" value="${user.getDateOfBirth()}" />
                             </div>
                             <div
                                     class="person-body-container-content-bottom-left-row-value-selectGroup"
@@ -297,7 +298,7 @@
                                 class="person-body-container-content-bottom-left-row-value"
                         >
                             <button
-                                    class="person-body-container-content-bottom-left-row-value-button"
+                                    class="person-body-container-content-bottom-left-row-value-button save-change"
                                     type="submit"
                             >
                                 Lưu
@@ -355,5 +356,8 @@
     <span class="ti-close"></span>
 </form>
 </div>
+<script>
+
+</script>
 </body>
 </html>
