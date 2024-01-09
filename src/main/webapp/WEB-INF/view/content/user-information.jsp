@@ -336,25 +336,24 @@
         </div>
     </div>
 </div>
-
+<div class="changeForm-container">
 <form class="form-changePassword" method="post" action="/user">
     <input style="display: none" name="action" value="changePassword">
-    <label>Mật khẩu cũ: <br><input type="password" name="oldPW"></label> <br><br>
-    <label>Mật khẩu mới: <br><input type="password" name="newPW"></label> <br><br>
+    <label>Mật khẩu cũ: <br><input type="password" name="oldPW"></label>
+    <label>Mật khẩu mới: <br><input type="password" name="newPW"></label>
     <label>Nhập lại mật khẩu mới: <br><input type="password" name="newAgainPW"></label>
-    <br>
-    <input type="submit">
+
+    <button class="formChange-submit" type="submit">Lưu</button>
     <span class="ti-close"></span>
 </form>
 <form class="form-changePhoneNumber" method="post" action="/user">
     <input style="display: none" name="action" value="changePhoneNumber">
-    <label>SĐT cũ: <br><input name="oldPN"></label> <br><br>
-    <label>SĐT mới: <br><input name="newPN"></label> <br><br>
+    <label>SĐT cũ: <br><input name="oldPN"></label>
+    <label>SĐT mới: <br><input name="newPN"></label>
     <label>Nhập lại SĐT: <br><input name="newAgainPN"></label>
-    <br>
-    <input type="submit">
+    <button class="formChange-submit" type="submit">Lưu</button>
     <span class="ti-close"></span>
 </form>
-
+</div>
 </body>
 </html>

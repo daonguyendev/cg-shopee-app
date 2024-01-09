@@ -29,9 +29,11 @@ public class UserController extends HttpServlet {
         try {
             User user= (User) request.getSession().getAttribute("user");
             String sdt = "";
+            if (user.getPhoneNumber()!=null){
             int lengt = user.getPhoneNumber().length();
             for(int i = lengt - 1; i >= lengt - 2; i--){
                 sdt = (Character) user.getPhoneNumber().charAt(i) + sdt;
+            }
             }
             request.setAttribute("sdt", sdt);
             request.setAttribute("a","ui");

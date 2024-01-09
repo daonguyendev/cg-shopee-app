@@ -320,21 +320,57 @@
   color: #ee4d2d;
   cursor: pointer;
 }
+
+.changeForm-container{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+}
+
 .form-changePassword, .form-changePhoneNumber{
   width: 20%;
-  height: 200px;
-  position: absolute;
+  min-height: 50px;
+  position: relative;
   z-index: 1;
   display: none;
-  background-color: darkgray;
+  background-color: #ffffff;
+  padding: 10px;
+  /*display: flex;*/
+  flex-direction: column;
+}
+
+.form-changePassword input, .form-changePhoneNumber input{
+  margin-bottom: 4px;
 }
 
 .form-changePassword > span, .form-changePhoneNumber >span {
-  cursor: pointer;
-  background-color: red;
-  position: relative;
-  top: -150px;
-  left: 230px;
+  /*background-color: red;*/
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
 
+.form-changePassword > span:hover, .form-changePhoneNumber >span:hover{
+  background-color: #dbdbdb;
+  cursor: pointer;
+}
+
+.formChange-submit{
+  width: 100px;
+  height: 35px;
+  background-color: var(--shope-color);
+  color: #ffffff;
+  border: none;
+}
+.formChange-submit:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
 
