@@ -23,6 +23,7 @@ public class User {
         this.name = email;
         this.password = password;
         this.verifyCode = verifyCode;
+        this.role = "Customer";
         this.status = status;
     }
 

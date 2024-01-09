@@ -6,13 +6,14 @@
     <decorator name="default" page="default.jsp">
         <pattern>/</pattern>-->
         <pattern>/home</pattern>
-<!--        <pattern>/load</pattern>-->
+        <pattern>/home/*</pattern>
         <pattern>/user</pattern>
         <pattern>/cart</pattern>
         <pattern>/product</pattern>
         <pattern>/add</pattern>
         <pattern>/delete</pattern>
         <pattern>/payment</pattern>
+        <pattern>/seller</pattern>
     </decorator>
     <decorator name="signin-signup" page="signin-signup.jsp">
         <pattern>/signin-signup</pattern>

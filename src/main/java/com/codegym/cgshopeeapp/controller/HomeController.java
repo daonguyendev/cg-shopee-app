@@ -3,6 +3,7 @@ package com.codegym.cgshopeeapp.controller;
 import com.codegym.cgshopeeapp.log.Log;
 import com.codegym.cgshopeeapp.model.dao.ProductDao;
 import com.codegym.cgshopeeapp.model.dao.WalletDao;
+import com.codegym.cgshopeeapp.model.entity.Category;
 import com.codegym.cgshopeeapp.model.entity.Product;
 import com.codegym.cgshopeeapp.model.entity.User;
 import com.codegym.cgshopeeapp.model.entity.Wallet;
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "HomeController", urlPatterns = {"", "/home"})
+@WebServlet(name = "HomeController", urlPatterns = {"", "/home","/home/search"})
 public class HomeController extends HttpServlet {
     private String message;
 
@@ -26,52 +27,93 @@ public class HomeController extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        List<Product> products = ProductDao.get6Product();
-        HttpSession httpSession = request.getSession();
-        User user = (User) httpSession.getAttribute("user");
-        if (user!=null){
-            int money = WalletDao.getById(user.getEmail()).getMoney();
-            httpSession.setAttribute("money",money);
-        }
-        try {
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/home/home.jsp");
-            message = request.getParameter("message");
-            if (message!=null){
-                request.setAttribute("message",message);
-            }
-            request.setAttribute("a", "home");
-            request.setAttribute("products",products);
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
+        String action = request.getServletPath();
+        switch (action){
+            case "/home":
+                List<Product> products = ProductDao.get6Product();
+                HttpSession httpSession = request.getSession();
+                User user = (User) httpSession.getAttribute("user");
+                List<Category> category = ProductDao.getCategoryInfo();
+                request.setAttribute("category", category);
+                if (user!=null){
+                    int money = WalletDao.getById(user.getEmail()).getMoney();
+                    httpSession.setAttribute("money",money);
+                }
+                try {
+                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/home/home.jsp");
+                    message = request.getParameter("message");
+                    if (message!=null){
+                        request.setAttribute("message",message);
+                    }
+                    request.setAttribute("a", "home");
+                    request.setAttribute("products",products);
+                    dispatcher.forward(request, response);
+                } catch (ServletException e) {
+                    throw new RuntimeException(e);
+                }
+                break;
+            case "/home/search":
+                try {
+                String name = request.getParameter("searchBar");
+                List<Product> productList = ProductDao.getByName(name);
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/home/home.jsp");
+                message = request.getParameter("message");
+                if (message!=null){
+                    request.setAttribute("message",message);
+                }
+                request.setAttribute("a", "home");
+                request.setAttribute("products",productList);
+                List<Category> category1 = ProductDao.getCategoryInfo();
+                request.setAttribute("category", category1);
+                dispatcher.forward(request, response);
+                break;
+            } catch (ServletException e) {
             throw new RuntimeException(e);
+            }
         }
-
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Product> products = ProductDao.get6Product();
-        HttpSession httpSession = request.getSession();
-        User user = (User) httpSession.getAttribute("user");
-        if (user!=null){
-            int money = WalletDao.getById(user.getEmail()).getMoney();
-            httpSession.setAttribute("money",money);
-        }
-        try {
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/home/home.jsp");
-            message = request.getParameter("message");
-            if (message!=null){
-                request.setAttribute("message",message);
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        String category = request.getParameter("category");
+        if (category != null) {
+           List<Product> categoryProduct = ProductDao.getProductCategoryInfo(category);
+            try {
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/home/home.jsp");
+                List<Category> categoryList = ProductDao.getCategoryInfo();
+                request.setAttribute("category", categoryList);
+                message = request.getParameter("message");
+                request.setAttribute("a", "home");
+                request.setAttribute("products", categoryProduct);
+                dispatcher.forward(request, response);
+            } catch (ServletException e) {
+                throw new RuntimeException(e);
             }
-            request.setAttribute("a", "home");
-            request.setAttribute("products",products);
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            throw new RuntimeException(e);
+        } else {
+            List<Product> products = ProductDao.get6Product();
+            HttpSession httpSession = request.getSession();
+            User user = (User) httpSession.getAttribute("user");
+            if (user != null) {
+                int money = WalletDao.getById(user.getEmail()).getMoney();
+                httpSession.setAttribute("money", money);
+            }
+            try {
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/home/home.jsp");
+                message = request.getParameter("message");
+                if (message != null) {
+                    request.setAttribute("message", message);
+                }
+                request.setAttribute("a", "home");
+                request.setAttribute("products", products);
+                dispatcher.forward(request, response);
+            } catch (ServletException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
     public void destroy() {
     }
-
 }

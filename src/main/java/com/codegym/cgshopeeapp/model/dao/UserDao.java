@@ -162,18 +162,18 @@ public class UserDao {
     public static void update(User user) {
         try {
             Connection connection = JdbcConnection.getConnection();
-            String query = "UPDATE user SET email = ?, password = ?, name = ?, address = ?, status = ?, birth = ?, gender = ?, phone_number= ? , role = ? WHERE email = ? ";
+
+            String query = "UPDATE user SET password = ?, name = ?, address = ?, status = ?, birth = ?, gender = ?, phone_number= ? , role = ? WHERE email like ? ";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, user.getEmail());
-            preparedStatement.setString(2, user.getPassword());
-            preparedStatement.setString(3, user.getName());
-            preparedStatement.setString(4, user.getAddress());
-            preparedStatement.setString(5, String.valueOf(user.isStatus()));
-            preparedStatement.setString(6, user.getDateOfBirth());
-            preparedStatement.setString(7, user.getGender());
-            preparedStatement.setString(8, user.getPhoneNumber());
-            preparedStatement.setString(9, user.getRole());
-            preparedStatement.setString(10, user.getEmail());
+            preparedStatement.setString(1, user.getPassword());
+            preparedStatement.setString(2, user.getName());
+            preparedStatement.setString(3, user.getAddress());
+            preparedStatement.setString(4, String.valueOf(user.isStatus()));
+            preparedStatement.setString(5, user.getDateOfBirth());
+            preparedStatement.setString(6, user.getGender());
+            preparedStatement.setString(7, user.getPhoneNumber());
+            preparedStatement.setString(8, user.getRole());
+            preparedStatement.setString(9, user.getEmail());
             if (preparedStatement.executeUpdate() > 0) {
                 System.out.println("Update succuessfully.");
             } else {

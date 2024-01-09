@@ -36,7 +36,7 @@ public class UserController extends HttpServlet {
             request.setAttribute("sdt", sdt);
             request.setAttribute("a","ui");
             request.setAttribute("message", message);
-            message = "1";
+            message = "";
             dispatcher.forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);

@@ -33,3 +33,19 @@ savePN.onclick = function(){
     document.querySelector('.person-body').style.opacity = 0.2
     document.querySelector('.person-body').style.pointerEvents = 'none';
 }
+
+let closeFromPW = document.querySelector('.form-changePassword > span');
+closeFromPW.onclick = function (e){
+    let el = document.querySelector(".form-changePassword")
+    el.style.display = 'none'
+    document.querySelector('.person-body').style.opacity = 1
+    document.querySelector('.person-body').style.pointerEvents = 'auto';
+}
+
+let closeFromPN = document.querySelector('.form-changePhoneNumber > span');
+closeFromPN.onclick = function (e){
+    let el = document.querySelector(".form-changePhoneNumber")
+    el.style.display = 'none'
+    document.querySelector('.person-body').style.opacity = 1
+    document.querySelector('.person-body').style.pointerEvents = 'auto';
+}

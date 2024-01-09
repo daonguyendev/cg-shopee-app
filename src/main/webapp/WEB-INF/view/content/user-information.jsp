@@ -34,7 +34,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Nav body -->
             <div class="person-body-container-nav-body">
                 <div
@@ -106,7 +105,7 @@
                 >
                     <div class="person-body-container-nav-body-item-icon">
                         <img
-                                src="	https://down-vn.img.susercontent.com/file/f0049e9df4e536bc3e7f140d071e9078"
+                                src="https://down-vn.img.susercontent.com/file/f0049e9df4e536bc3e7f140d071e9078"
                                 alt=""
                         />
                     </div>
@@ -119,7 +118,7 @@
                 >
                     <div class="person-body-container-nav-body-item-icon">
                         <img
-                                src="	https://down-vn.img.susercontent.com/file/e10a43b53ec8605f4829da5618e0717c"
+                                src="https://down-vn.img.susercontent.com/file/e10a43b53ec8605f4829da5618e0717c"
                                 alt=""
                         />
                     </div>
@@ -345,6 +344,7 @@
     <label>Nhập lại mật khẩu mới: <br><input type="password" name="newAgainPW"></label>
     <br>
     <input type="submit">
+    <span class="ti-close"></span>
 </form>
 <form class="form-changePhoneNumber" method="post" action="/user">
     <input style="display: none" name="action" value="changePhoneNumber">
@@ -353,23 +353,8 @@
     <label>Nhập lại SĐT: <br><input name="newAgainPN"></label>
     <br>
     <input type="submit">
+    <span class="ti-close"></span>
 </form>
-<script>
 
-</script>
-<style>
-    .changePhoneNumber {
-        color: #ee4d2d;
-        cursor: pointer;
-    }
-    .form-changePassword, .form-changePhoneNumber{
-        width: 20%;
-        height: 200px;
-        position: absolute;
-        z-index: 1;
-        display: none;
-        background-color: darkgray;
-    }
-</style>
 </body>
 </html>

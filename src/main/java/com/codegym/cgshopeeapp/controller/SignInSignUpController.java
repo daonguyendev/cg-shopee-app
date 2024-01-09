@@ -25,7 +25,10 @@ public class SignInSignUpController extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String a = request.getParameter("a");
+        String a = "signin";
+        if (request.getParameter("a")!= null){
+            a = request.getParameter("a");
+        }
         switch (a) {
             case "signin":
                 RequestDispatcher requestDispatcher1 = getServletContext().getRequestDispatcher("/WEB-INF/view/content/signin-form.jsp");
