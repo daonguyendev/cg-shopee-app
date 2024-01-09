@@ -175,7 +175,7 @@
                         <div
                                 class="person-body-container-content-bottom-left-row-value"
                         >
-                            User email
+                            ${user.getEmail()}
                         </div>
                     </div>
                     <div class="person-body-container-content-bottom-left-row">
@@ -217,15 +217,15 @@
                         <div
                                 class="person-body-container-content-bottom-left-row-value"
                         >
-                            *********${sdt}
+                            ********${sdt}
                             <p
-                                    class="person-body-container-content-bottom-left-row-value changePassword"
+                                    class="person-body-container-content-bottom-left-row-value changePhoneNumber"
                             >
                                 Bấm vào đây để thay đổi số điện thoại
                             </p>
                         </div>
                     </div>
-                    <input>
+
                     <div class="person-body-container-content-bottom-left-row">
                         <div
                                 class="person-body-container-content-bottom-left-row-label"
@@ -239,9 +239,9 @@
                                     class="person-body-container-content-bottom-left-row-value-radioGroup"
                             >
                                 <input type="radio" name="gender" id="nam" value="nam"
-                                       checked="<c:if test="${user.getPhoneNumber() ne 'nam'}">
-                                            false
-                                       </c:if>">
+                                       <c:if test="${user.getGender() eq 'nam'}">
+                                            checked
+                                       </c:if>>
 
                                 <label for="nam">Nam</label>
                             </div>
@@ -249,9 +249,9 @@
                                     class="person-body-container-content-bottom-left-row-value-radioGroup"
                             >
                                 <input type="radio" name="gender" id="nu" value="nu"
-                                       checked="<c:if test="${user.getPhoneNumber() ne 'nu'}">
-                                            false
-                                       </c:if>">
+                                       <c:if test="${user.getGender() eq 'nu'}">
+                                            checked
+                                       </c:if>>
 
                                 <label for="nu">Nữ</label>
                             </div>
@@ -259,9 +259,9 @@
                                     class="person-body-container-content-bottom-left-row-value-radioGroup"
                             >
                                 <input type="radio" name="gender" id="khac" value="khac"
-                                       checked="<c:if test="${user.getPhoneNumber() ne 'khac'}">
-                                            false
-                                       </c:if>">
+                                       <c:if test="${user.getGender() eq 'khac'}">
+                                            checked
+                                       </c:if>>
                                 <label for="khac">Khác</label>
                             </div>
                         </div>
@@ -337,27 +337,32 @@
         </div>
     </div>
 </div>
-<form class="form-changePassword" method="post">
-    <label>Mật khẩu cũ: <br><input name="oldPW"></label> <br><br>
-    <label>Mật khẩu mới: <br><input name="newPW"></label> <br><br>
-    <label>Nhập lại mật khẩu mới: <br><input name="newAgainPW"></label>
+
+<form class="form-changePassword" method="post" action="/user">
+    <input style="display: none" name="action" value="changePassword">
+    <label>Mật khẩu cũ: <br><input type="password" name="oldPW"></label> <br><br>
+    <label>Mật khẩu mới: <br><input type="password" name="newPW"></label> <br><br>
+    <label>Nhập lại mật khẩu mới: <br><input type="password" name="newAgainPW"></label>
+    <br>
+    <input type="submit">
+</form>
+<form class="form-changePhoneNumber" method="post" action="/user">
+    <input style="display: none" name="action" value="changePhoneNumber">
+    <label>SĐT cũ: <br><input name="oldPN"></label> <br><br>
+    <label>SĐT mới: <br><input name="newPN"></label> <br><br>
+    <label>Nhập lại SĐT: <br><input name="newAgainPN"></label>
     <br>
     <input type="submit">
 </form>
 <script>
-    let save = document.querySelector(".changePassword");
-    save.onclick = function(){
-        let el = document.querySelector(".form-changePassword")
-        el.style.display = 'block'
-        el.style.top = window.innerHeight/2-60+ 'px'
-        el.style.left = window.innerWidth/2-600+'px'
-        console.log(window.innerWidth, window.innerHeight)
-        document.querySelector('.person-body').style.opacity = 0.2
-        document.querySelector('.person-body').style.pointerEvents = 'none';
-    }
+
 </script>
 <style>
-    .form-changePassword{
+    .changePhoneNumber {
+        color: #ee4d2d;
+        cursor: pointer;
+    }
+    .form-changePassword, .form-changePhoneNumber{
         width: 20%;
         height: 200px;
         position: absolute;

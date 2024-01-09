@@ -162,7 +162,7 @@ public class UserDao {
     public static void update(User user) {
         try {
             Connection connection = JdbcConnection.getConnection();
-            String query = "UPDATE product SET email = ?, password = ?, name = ?, address = ?, status = ?, birth = ?, gender = ?, phone_number= ? , role = ? WHERE email = ? ";
+            String query = "UPDATE user SET email = ?, password = ?, name = ?, address = ?, status = ?, birth = ?, gender = ?, phone_number= ? , role = ? WHERE email = ? ";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, user.getEmail());
             preparedStatement.setString(2, user.getPassword());
@@ -175,9 +175,9 @@ public class UserDao {
             preparedStatement.setString(9, user.getRole());
             preparedStatement.setString(10, user.getEmail());
             if (preparedStatement.executeUpdate() > 0) {
-                System.out.println("Update product succuessfully.");
+                System.out.println("Update succuessfully.");
             } else {
-                System.out.println("Failed to update product.");
+                System.out.println("Failed to update.");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -226,28 +226,4 @@ public class UserDao {
         return user;
     }
 
-    public static void  update(User user) {
-        try {
-            Connection connection = JdbcConnection.getConnection();
-            String query = "UPDATE product SET email = ?, password = ?, name = ?, address = ?, status = ?, birth = ?, gender = ?, phone_number= ? , role = ? WHERE email = ? ";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, user.getEmail());
-            preparedStatement.setString(2, user.getPassword());
-            preparedStatement.setString(3,user.getName());
-            preparedStatement.setString(4, user.getAddress());
-            preparedStatement.setString(5, String.valueOf(user.isStatus()) );
-            preparedStatement.setString(6,user.getDateOfBirth());
-            preparedStatement.setString(7, user.getGender());
-            preparedStatement.setString(8, user.getPhoneNumber());
-            preparedStatement.setString(9, user.getRole());
-            preparedStatement.setString(10, user.getEmail());
-            if (preparedStatement.executeUpdate() > 0) {
-                System.out.println("Update product succuessfully.");
-            } else {
-                System.out.println("Failed to update product.");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

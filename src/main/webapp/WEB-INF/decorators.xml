@@ -4,7 +4,7 @@
 
     </exclude>
     <decorator name="default" page="default.jsp">
-<!--        <pattern>/</pattern>-->
+        <pattern>/</pattern>-->
         <pattern>/home</pattern>
 <!--        <pattern>/load</pattern>-->
         <pattern>/user</pattern>
