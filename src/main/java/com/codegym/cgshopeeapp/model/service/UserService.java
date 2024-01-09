@@ -29,4 +29,15 @@ public class UserService {
         UserDao.update(user);
         return "Đổi SĐT thành công";
     }
+
+    public String saveChange(String newName, String newGender, String newBirth, User user){
+        if(newName == null) return "Không thể bỏ trống tên";
+        if(newGender == null) return "Không thể bỏ trống giới tính";
+        if(newBirth == null) return "Không thể để trống ngày sinh";
+        user.setName(newName);
+        user.setDateOfBirth(newBirth);
+        user.setGender(newGender);
+        UserDao.update(user);
+        return "Lưu thành công";
+    }
 }

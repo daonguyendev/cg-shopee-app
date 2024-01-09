@@ -49,22 +49,27 @@ public class UserController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String action = req.getParameter("action");
-        System.out.println("dopost");
+        User user = (User) req.getSession().getAttribute("user");
         switch (action){
             case "changePassword":
                 String oldPW = req.getParameter("oldPW");
                 String newPW = req.getParameter("newPW");
                 String againPW = req.getParameter("newAgainPW");
-                User user = (User) req.getSession().getAttribute("user");
                 message = UserService.getInstance().changePW(oldPW, newPW, againPW, user);
                 break;
             case "changePhoneNumber":
                 String oldPN = req.getParameter("oldPN");
                 String newPN = req.getParameter("newPN");
                 String againPN = req.getParameter("newAgainPN");
-                User user1 = (User) req.getSession().getAttribute("user");
-                message = UserService.getInstance().changePW(oldPN, newPN, againPN, user1);
+                message = UserService.getInstance().changePW(oldPN, newPN, againPN, user);
+                break;
+            case "saveChange":
+                String newName = req.getParameter("name");
+                String newGender = req.getParameter("gender");
+                String newBirth = req.getParameter("dayOfBirth");
+                message = UserService.getInstance().saveChange(newName, newGender, newBirth, user);
                 break;
         }
         resp.sendRedirect("/user");
