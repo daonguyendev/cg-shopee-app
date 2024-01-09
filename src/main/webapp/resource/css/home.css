@@ -244,6 +244,8 @@ transform: translateY(-5px);
 .body-productContainer-product-productName {
   flex: 1;
   padding: 10px 5px;
+  max-height: 33px;
+  overflow: hidden;
 }
 
 .body-productContainer-product-productQuantity{

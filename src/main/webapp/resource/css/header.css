@@ -153,6 +153,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #fff;
+  border: none;
 }
 
 .header-container-row2-center-searchContainer-searchIcon:hover {

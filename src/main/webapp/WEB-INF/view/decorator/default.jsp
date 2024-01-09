@@ -20,13 +20,8 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<c:if test="${not empty message}">
-    <script >
-        function alertExist(){
-            alert("<c:out value="${message}">a</c:out>")}
-    </script>
-</c:if>
-<head onload="alertExist()">
+
+<head>
     <meta charset="UTF-8"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0"/>
@@ -36,10 +31,12 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/footer.css">
     <c:choose>
+        <c:when test = "${a eq 'seller'}">
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/seller-register-form.css">
+        </c:when>
         <c:when test = "${a eq 'home'}">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/home.css">
         </c:when>
-
         <c:when test = "${a eq 'ui'}">
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/user-information.css">
         </c:when>
@@ -92,15 +89,12 @@
         <script src="${pageContext.request.contextPath}/resource/js/load-more.js"></script>
     </c:otherwise>
 </c:choose>
-<<<<<<< HEAD
 
-=======
 <c:if test="${not empty message}">
     <script >
         function x(){
             alert("<c:out value="${message}">a</c:out>")}
     </script>
 </c:if>
->>>>>>> ad0562a4c38e61a63fc133287cd1c59ab8ea7a2b
 </body>
 </html>

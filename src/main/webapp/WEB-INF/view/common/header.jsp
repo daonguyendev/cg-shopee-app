@@ -36,7 +36,7 @@
 
 
                 <div class="header-container-row1-left-item">|</div>
-                <a href="" class="header-container-row1-left-item">
+                <a href="/seller" class="header-container-row1-left-item">
                     Trở thành người bán
                 </a>
                 <div class="header-container-row1-left-item">|</div>
@@ -91,7 +91,7 @@
             <a href="/home" class="header-container-row2-left"></a>
 
             <div class="header-container-row2-center">
-                <div class="header-container-row2-center-searchContainer">
+                <form action="/home/search" method="get"  class="header-container-row2-center-searchContainer">
                     <input
                             type="text"
                             name="searchBar"
@@ -99,12 +99,12 @@
                             class="header-container-row2-center-searchContainer-searchBar"
                             placeholder="Shopee bao ship 0Đ - Đăng ký ngay!"
                     />
-                    <div
+                    <button type="submit"
                             class="header-container-row2-center-searchContainer-searchIcon"
                     >
                         <span class="ti-search"></span>
-                    </div>
-                </div>
+                    </button>
+                </form>
             </div>
             <a href="/cart" class="header-container-row2-right">
                 <div class="header-container-row2-right-icon"></div>
