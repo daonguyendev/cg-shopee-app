@@ -12,9 +12,7 @@ public class JdbcConnection {
     private static final String CONN_URL = "jdbc:mysql://localhost:3306/cg_shopee_app";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "01666553995";
-
-
-
+    
     public static @Nullable Connection getConnection() {
         Connection connection;
         try {
