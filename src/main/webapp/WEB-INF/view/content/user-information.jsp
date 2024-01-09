@@ -33,7 +33,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Nav body -->
             <div class="person-body-container-nav-body">
                 <div
@@ -105,7 +104,7 @@
                 >
                     <div class="person-body-container-nav-body-item-icon">
                         <img
-                                src="	https://down-vn.img.susercontent.com/file/f0049e9df4e536bc3e7f140d071e9078"
+                                src="https://down-vn.img.susercontent.com/file/f0049e9df4e536bc3e7f140d071e9078"
                                 alt=""
                         />
                     </div>
@@ -118,7 +117,7 @@
                 >
                     <div class="person-body-container-nav-body-item-icon">
                         <img
-                                src="	https://down-vn.img.susercontent.com/file/e10a43b53ec8605f4829da5618e0717c"
+                                src="https://down-vn.img.susercontent.com/file/e10a43b53ec8605f4829da5618e0717c"
                                 alt=""
                         />
                     </div>

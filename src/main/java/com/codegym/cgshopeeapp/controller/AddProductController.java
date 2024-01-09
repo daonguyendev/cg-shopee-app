@@ -16,11 +16,9 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "AddProductController", value = "/add")
 public class AddProductController extends HttpServlet {
     private String message;
-
     public void init() {
         message = "Hello World!";
     }
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession httpSession = request.getSession();
         Cart cart = (Cart) httpSession.getAttribute("cart");
@@ -36,7 +34,6 @@ public class AddProductController extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
-
     public void destroy() {
     }
 }

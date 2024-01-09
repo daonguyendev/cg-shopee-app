@@ -7,7 +7,6 @@
 
 :root {
   --shope-color: #ee4d2d;
-  /* --shope-color: #9e4be7; */
 }
 
 
@@ -56,14 +55,12 @@
   flex: 1;
   height: 353px;
 }
-
 .banner-img1 {
   background-image: url(https://cf.shopee.vn/file/vn-50009109-3b4844af326ff3b9c1e1793d0dbda9f3_xxhdpi);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
-
 .banner-img2 {
   background-image: url(https://cf.shopee.vn/file/vn-50009109-8dea079af9d29599231621a9deac1ab5_xxhdpi);
   background-size: contain;
@@ -77,14 +74,12 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-
 .banner-img4 {
   background-image: url(https://cf.shopee.vn/file/vn-50009109-345524b6b2e6432ca1d837542ea8f297_xxhdpi);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
-
 .manual-radio-buttonGroup {
   position: absolute;
   display: flex;
@@ -184,75 +179,10 @@
 }
 
 .body-category-row2-item-img-1 {
-  background-image: url(https://down-vn.img.susercontent.com/file/687f3967b7c2fe6a134a2c11894eea4b_tn);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
-
-.body-category-row2-item-img-2 {
-  background-image: url(https://down-vn.img.susercontent.com/file/31234a27876fb89cd522d7e3db1ba5ca_tn);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.body-category-row2-item-img-3 {
-  background-image: url(https://down-vn.img.susercontent.com/file/75ea42f9eca124e9cb3cde744c060e4d_tn);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.body-category-row2-item-img-4 {
-  background-image: url(https://down-vn.img.susercontent.com/file/c3f3edfaa9f6dafc4825b77d8449999d_tn);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.body-category-row2-item-img-5 {
-  background-image: url(https://down-vn.img.susercontent.com/file/ec14dd4fc238e676e43be2a911414d4d_tn);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.body-category-row2-item-img-6 {
-  background-image: url(https://down-vn.img.susercontent.com/file/86c294aae72ca1db5f541790f7796260_tn);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.body-category-row2-item-img-7 {
-  background-image: url(https://down-vn.img.susercontent.com/file/74ca517e1fa74dc4d974e5d03c3139de_tn);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.body-category-row2-item-img-8 {
-  background-image: url(https://down-vn.img.susercontent.com/file/6cb7e633f8b63757463b676bd19a50e4_tn);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.body-category-row2-item-img-9 {
-  background-image: url(https://down-vn.img.susercontent.com/file/fa6ada2555e8e51f369718bbc92ccc52_tn);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.body-category-row2-item-img-10 {
-  background-image: url(https://down-vn.img.susercontent.com/file/48630b7c76a7b62bc070c9e227097847_tn);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 .body-productTitle {
   height: 60px;
   width: 80%;
