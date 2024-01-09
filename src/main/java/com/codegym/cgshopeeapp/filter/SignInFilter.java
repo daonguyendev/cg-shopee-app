@@ -1,4 +1,4 @@
-package filter;
+package com.codegym.cgshopeeapp.filter;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -11,7 +11,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter (urlPatterns = {"/cart","/add","/delete","/payment","/product","/user"})
+@WebFilter (urlPatterns = {"/cart","/add","/delete","/payment","/product","/user","/seller"})
 public class SignInFilter implements Filter {
 
     @Override
