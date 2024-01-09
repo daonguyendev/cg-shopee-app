@@ -22,10 +22,10 @@
     <div class="banner-sliderContain">
         <!-- Radio group -->
 
-        <input class="radio" type="radio" name="radio" id="radio1" checked />
-        <input class="radio" type="radio" name="radio" id="radio2" />
-        <input class="radio" type="radio" name="radio" id="radio3" />
-        <input class="radio" type="radio" name="radio" id="radio4" />
+        <input class="radio" type="radio" name="radio" id="radio1" checked/>
+        <input class="radio" type="radio" name="radio" id="radio2"/>
+        <input class="radio" type="radio" name="radio" id="radio3"/>
+        <input class="radio" type="radio" name="radio" id="radio4"/>
 
         <!-- End Radio group -->
 
@@ -67,106 +67,21 @@
             <p class="body-category-row1-text">DANH MỤC</p>
         </div>
         <div class="body-category-row2">
-            <div class="body-category-row2-item">
-                <div
-                        class="body-category-row2-item-img body-category-row2-item-img-1"
-                ></div>
-                <div
-                        class="body-category-row2-item-text body-category-row2-item-text-1"
-                >
-                    Thời Trang Nam
+            <c:forEach items="${category}" var="category">
+                <div class="body-category-row2-item">
+                    <form action="/home" method="post">
+                    <button style="cursor: pointer; background:none ; border: none" name="category"
+                            value="${category.getName()}">
+                        <img src="${category.getUrl()}" alt="" class="body-category-row2-item-img">
+                        <div
+                                class="body-category-row2-item-text body-category-row2-item-text-1"
+                        >
+                                ${category.getName()}
+                        </div>
+                    </button>
+                    </form>
                 </div>
-            </div>
-            <div class="body-category-row2-item">
-                <div
-                        class="body-category-row2-item-img body-category-row2-item-img-2"
-                ></div>
-                <div
-                        class="body-category-row2-item-text body-category-row2-item-text-2"
-                >
-                    Điện Thoại
-                </div>
-            </div>
-            <div class="body-category-row2-item">
-                <div
-                        class="body-category-row2-item-img body-category-row2-item-img-3"
-                ></div>
-                <div
-                        class="body-category-row2-item-text body-category-row2-item-text-3"
-                >
-                    Thời Trang Nữ
-                </div>
-            </div>
-            <div class="body-category-row2-item">
-                <div
-                        class="body-category-row2-item-img body-category-row2-item-img-4"
-                ></div>
-                <div
-                        class="body-category-row2-item-text body-category-row2-item-text-4"
-                >
-                    Laptop
-                </div>
-            </div>
-            <div class="body-category-row2-item">
-                <div
-                        class="body-category-row2-item-img body-category-row2-item-img-5"
-                ></div>
-                <div
-                        class="body-category-row2-item-text body-category-row2-item-text-5"
-                >
-                    Máy Ảnh
-                </div>
-            </div>
-            <div class="body-category-row2-item">
-                <div
-                        class="body-category-row2-item-img body-category-row2-item-img-6"
-                ></div>
-                <div
-                        class="body-category-row2-item-text body-category-row2-item-text-6"
-                >
-                    Đồng Hồ
-                </div>
-            </div>
-            <div class="body-category-row2-item">
-                <div
-                        class="body-category-row2-item-img body-category-row2-item-img-7"
-                ></div>
-                <div
-                        class="body-category-row2-item-text body-category-row2-item-text-7"
-                >
-                    Giày Nam
-                </div>
-            </div>
-            <div class="body-category-row2-item">
-                <div
-                        class="body-category-row2-item-img body-category-row2-item-img-8"
-                ></div>
-                <div
-                        class="body-category-row2-item-text body-category-row2-item-text-8"
-                >
-                    Thể Thao
-                </div>
-            </div>
-            <div class="body-category-row2-item">
-                <div
-                        class="body-category-row2-item-img body-category-row2-item-img-9"
-                ></div>
-                <div
-                        class="body-category-row2-item-text body-category-row2-item-text-9"
-                >
-                    Túi Ví Nữ
-                </div>
-            </div>
-            <div class="body-category-row2-item">
-                <div
-                        class="body-category-row2-item-img body-category-row2-item-img-10"
-                ></div>
-                <div
-                        class="body-category-row2-item-text body-category-row2-item-text-10"
-                >
-                    Giày Nữ
-                </div>
-            </div>
+            </c:forEach>
         </div>
     </div>
     <!-- End Category -->
@@ -180,22 +95,26 @@
     <!-- Product Container -->
     <div class="body-productContainer">
         <c:forEach items="${products}" var="product">
-            <a      <c:if test="${product.getQuantity()<1}">style="opacity: 0.4; pointer-events: none"</c:if>
-                    href="${pageContext.request.contextPath}/add?id=${product.getId()}" class="body-productContainer-product">
-            <div class="body-productContainer-product-group">
-                <img src="${product.getUrl()}" class="body-productContainer-product-prouctImg"></img>
-                <div class="body-productContainer-product-productName">
-                        ${product.getName()}
-                </div>
-                <div class="body-productContainer-product-unitPrice">
-                    <div class="body-productContainer-product-unitPrice-origin"><sub>đ</sub> ${product.getOriginUnitPrice()}</div>
-                    <div class="body-productContainer-product-unitPrice-sell"><sub>đ</sub> ${product.getCurrentPrice()}</div>
+            <a
+                    <c:if test="${product.getQuantity()<1}">style="opacity: 0.4; pointer-events: none"</c:if>
+                    href="${pageContext.request.contextPath}/add?id=${product.getId()}"
+                    class="body-productContainer-product">
+                <div class="body-productContainer-product-group">
+                    <img src="${product.getUrl()}" class="body-productContainer-product-prouctImg"></img>
+                    <div class="body-productContainer-product-productName">
+                            ${product.getName()}
+                    </div>
+                    <div class="body-productContainer-product-unitPrice">
+                        <div class="body-productContainer-product-unitPrice-origin">
+                            <sub>đ</sub> ${product.getOriginUnitPrice()}</div>
+                        <div class="body-productContainer-product-unitPrice-sell">
+                            <sub>đ</sub> ${product.getCurrentPrice()}</div>
 
+                    </div>
+                    <div class="body-productContainer-product-productQuantity">
+                        Số lượng: ${product.getQuantity()}
+                    </div>
                 </div>
-                <div class="body-productContainer-product-productQuantity">
-                    Số lượng: ${product.getQuantity()}
-                </div>
-            </div>
             </a>
         </c:forEach>
     </div>
