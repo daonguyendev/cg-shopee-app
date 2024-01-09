@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -173,7 +174,7 @@
                         <div
                                 class="person-body-container-content-bottom-left-row-value"
                         >
-                            User email
+                            ${user.getEmail()}
                         </div>
                     </div>
                     <div class="person-body-container-content-bottom-left-row">
@@ -190,6 +191,7 @@
                                     type="text"
                                     name="name"
                                     class="person-body-container-content-bottom-left-row-value-input"
+                                    value="${user.getName()}"
                             />
                         </div>
                     </div>
@@ -214,14 +216,15 @@
                         <div
                                 class="person-body-container-content-bottom-left-row-value"
                         >
-                            *********00
+                            ********${sdt}
                             <p
-                                    class="person-body-container-content-bottom-left-row-value changePassword"
+                                    class="person-body-container-content-bottom-left-row-value changePhoneNumber"
                             >
                                 Bấm vào đây để thay đổi số điện thoại
                             </p>
                         </div>
                     </div>
+
                     <div class="person-body-container-content-bottom-left-row">
                         <div
                                 class="person-body-container-content-bottom-left-row-label"
@@ -234,19 +237,30 @@
                             <div
                                     class="person-body-container-content-bottom-left-row-value-radioGroup"
                             >
-                                <input type="radio" name="gender" id="nam" value="nam" />
+                                <input type="radio" name="gender" id="nam" value="nam"
+                                       <c:if test="${user.getGender() eq 'nam'}">
+                                            checked
+                                       </c:if>>
+
                                 <label for="nam">Nam</label>
                             </div>
                             <div
                                     class="person-body-container-content-bottom-left-row-value-radioGroup"
                             >
-                                <input type="radio" name="gender" id="nu" value="nu" />
+                                <input type="radio" name="gender" id="nu" value="nu"
+                                       <c:if test="${user.getGender() eq 'nu'}">
+                                            checked
+                                       </c:if>>
+
                                 <label for="nu">Nữ</label>
                             </div>
                             <div
                                     class="person-body-container-content-bottom-left-row-value-radioGroup"
                             >
-                                <input type="radio" name="gender" id="khac" value="khac" />
+                                <input type="radio" name="gender" id="khac" value="khac"
+                                       <c:if test="${user.getGender() eq 'khac'}">
+                                            checked
+                                       </c:if>>
                                 <label for="khac">Khác</label>
                             </div>
                         </div>
@@ -322,5 +336,25 @@
         </div>
     </div>
 </div>
+
+<form class="form-changePassword" method="post" action="/user">
+    <input style="display: none" name="action" value="changePassword">
+    <label>Mật khẩu cũ: <br><input type="password" name="oldPW"></label> <br><br>
+    <label>Mật khẩu mới: <br><input type="password" name="newPW"></label> <br><br>
+    <label>Nhập lại mật khẩu mới: <br><input type="password" name="newAgainPW"></label>
+    <br>
+    <input type="submit">
+    <span class="ti-close"></span>
+</form>
+<form class="form-changePhoneNumber" method="post" action="/user">
+    <input style="display: none" name="action" value="changePhoneNumber">
+    <label>SĐT cũ: <br><input name="oldPN"></label> <br><br>
+    <label>SĐT mới: <br><input name="newPN"></label> <br><br>
+    <label>Nhập lại SĐT: <br><input name="newAgainPN"></label>
+    <br>
+    <input type="submit">
+    <span class="ti-close"></span>
+</form>
+
 </body>
 </html>

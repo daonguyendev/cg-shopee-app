@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "CartControllerServlet", urlPatterns = {"/cart"})
 public class CartController extends HttpServlet {
     private String message;
-
     public void init() {
         message = "Hello World!";
     }
