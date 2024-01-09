@@ -10,8 +10,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8"
          language="java" %>
-<c:set var="user" value='${sessionScope["user"]}' />
-<c:set var="money" value='${sessionScope["money"]}' />
+<c:set var="user" value='${sessionScope["user"]}'/>
+<c:set var="money" value='${sessionScope["money"]}'/>
 <div class="header-under">
 
 </div>
@@ -20,21 +20,9 @@
     <div class="header-container">
         <div class="header-container-row1">
             <div class="header-container-row1-left">
-
-                <c:choose >
-                    <c:when test="${user.getRole() == 'Shop'}">
-                        <a href="/product" class="header-container-row1-left-item"
-                        >Kênh người bán</a
-                        >
-                    </c:when>
-                    <c:otherwise>
-                        <a href="" class="header-container-row1-left-item"
-                        >Kênh người bán</a
-                        >
-                    </c:otherwise>
-                </c:choose>
-
-
+                <a href="/product" class="header-container-row1-left-item"
+                >Kênh người bán</a
+                >
                 <div class="header-container-row1-left-item">|</div>
                 <a href="/seller" class="header-container-row1-left-item">
                     Trở thành người bán
@@ -71,11 +59,11 @@
 
 
                 <c:choose>
-                    <c:when test = "${empty user}">
+                    <c:when test="${empty user}">
                         <a href="/signin-signup?a=signup" class="header-container-row1-right-item">Đăng Ký</a>
                         <div class="header-container-row1-right-item">|</div>
                         <a href="/signin-signup?a=signin" class="header-container-row1-right-item">Đăng Nhập</a>
-                       </c:when>
+                    </c:when>
 
                     <c:otherwise>
                         <a href="/user?a=ui" class="header-container-row1-right-item">${user.getName()}</a>
@@ -91,7 +79,7 @@
             <a href="/home" class="header-container-row2-left"></a>
 
             <div class="header-container-row2-center">
-                <form action="/home/search" method="get"  class="header-container-row2-center-searchContainer">
+                <form action="/home/search" method="get" class="header-container-row2-center-searchContainer">
                     <input
                             type="text"
                             name="searchBar"
