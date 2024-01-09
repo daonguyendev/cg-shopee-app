@@ -101,42 +101,7 @@
         <div class="header-container-row3">
             <div class="header-container-row3-left"></div>
             <div class="header-container-row3-center">
-                <a href="" class="header-container-row3-center-item"
-                >Vợt cầu lông</a
-                >
-                <a href="" class="header-container-row3-center-item"
-                >Vợt cầu lông</a
-                >
-                <a href="" class="header-container-row3-center-item"
-                >Vợt cầu lông</a
-                >
-                <a href="" class="header-container-row3-center-item"
-                >Vợt cầu lông</a
-                >
-                <a href="" class="header-container-row3-center-item"
-                >Vợt cầu lông</a
-                >
-                <a href="" class="header-container-row3-center-item"
-                >Vợt cầu lông</a
-                >
-                <a href="" class="header-container-row3-center-item"
-                >Vợt cầu lông</a
-                >
-                <a href="" class="header-container-row3-center-item"
-                >Vợt cầu lông</a
-                >
-                <a href="" class="header-container-row3-center-item"
-                >Vợt cầu lông</a
-                >
-                <a href="" class="header-container-row3-center-item"
-                >Vợt cầu lông</a
-                >
-                <a href="" class="header-container-row3-center-item"
-                >Vợt cầu lông</a
-                >
-                <a href="" class="header-container-row3-center-item"
-                >Vợt cầu lông</a
-                >
+                
             </div>
             <div class="header-container-row3-right"></div>
         </div>
